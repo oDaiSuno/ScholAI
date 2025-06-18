@@ -406,7 +406,7 @@ def extract_academic_query(
     return json.dumps(result, indent=2)
 
 
-@mcp.tool(name="list_downloaded_papers", description="List all downloaded papers")
+@mcp.tool(name="list_downloaded_papers", description="When you need to read a paper, first List all paths of downloaded papers")
 async def list_downloaded_papers() -> list[str]:
     return [file for file in Path("./data").iterdir() if file.suffix == ".pdf"]
 

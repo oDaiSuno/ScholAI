@@ -1,0 +1,4055 @@
+# CCF推荐学术期刊和会议列表
+# 格式: rank abbr fullname url1 url2
+# Copyright (c) 2019-2023 WenyanLiu (https://github.com/WenyanLiu/CCFrank4dblp)
+
+venues:
+  - rank: A
+    abbr: TOCS
+    name: "ACM Transactions on Computer Systems"
+    url: /journals/tocs
+    dblp: /journals/tocs/tocs
+
+  - rank: A
+    abbr: TOS
+    name: "ACM Transactions on Storage"
+    url: /journals/tos
+    dblp: /journals/tos/tos
+
+  - rank: A
+    abbr: TCAD
+    name: "IEEE Transactions On Computer-Aided Design Of Integrated Circuits And System"
+    url: /journals/tcad
+    dblp: /journals/tcad/tcad
+
+  - rank: A
+    abbr: TC
+    name: "IEEE Transactions on Computers"
+    url: /journals/tc
+    dblp: /journals/tc/tc
+
+  - rank: A
+    abbr: TPDS
+    name: "IEEE Transactions on Parallel and Distributed Systems"
+    url: /journals/tpds
+    dblp: /journals/tpds/tpds
+
+  - rank: A
+    abbr: TACO
+    name: "ACM Transactions on Architecture and Code Optimization"
+    url: /journals/taco
+    dblp: /journals/taco/taco
+
+  - rank: B
+    abbr: TAAS
+    name: "ACM Transactions on Autonomous and Adaptive Systems"
+    url: /journals/taas
+    dblp: /journals/taas/taas
+
+  - rank: B
+    abbr: TODAES
+    name: "ACM Transactions on Design Automation of Electronic Systems"
+    url: /journals/todaes
+    dblp: /journals/todaes/todaes
+
+  - rank: B
+    abbr: TECS
+    name: "ACM Transactions on Embedded Computing Systems"
+    url: /journals/tecs
+    dblp: /journals/tecs/tecs
+
+  - rank: B
+    abbr: TRETS
+    name: "ACM Transactions on Reconfigurable Technology and Systems"
+    url: /journals/trets
+    dblp: /journals/trets/trets
+
+  - rank: B
+    abbr: TVLSI
+    name: "IEEE Transactions on Very Large Scale Integration (VLSI) Systems"
+    url: /journals/tvlsi
+    dblp: /journals/tvlsi/tvlsi
+
+  - rank: B
+    abbr: JPDC
+    name: "Journal of Parallel and Distributed Computing"
+    url: /journals/jpdc
+    dblp: /journals/jpdc/jpdc
+
+  - rank: B
+    abbr: JSA
+    name: "Journal of Systems Architecture: Embedded Software Design"
+    url: /journals/jsa
+    dblp: /journals/jsa/jsa
+
+  - rank: B
+    abbr: PARCO
+    name: "Parallel Computing"
+    url: /conf/parco
+    dblp: /conf/parco/parco
+
+  - rank: B
+    abbr: 
+    name: "Performance Evaluation: An International Journal"
+    url: /journals/pe
+    dblp: /journals/pe/pe
+
+  - rank: C
+    abbr: JETC
+    name: "ACM Journal on Emerging Technologies in Computing Systems"
+    url: /journals/jetc
+    dblp: /journals/jetc/jetc
+
+  - rank: C
+    abbr: 
+    name: "Concurrency and Computation: Practice and Experience"
+    url: /journals/concurrency
+    dblp: /journals/concurrency/concurrency
+
+  - rank: C
+    abbr: DC
+    name: "Distributed Computing"
+    url: /journals/dc
+    dblp: /journals/dc/dc
+
+  - rank: C
+    abbr: FGCS
+    name: "Future Generation Computer Systems"
+    url: /journals/fgcs
+    dblp: /journals/fgcs/fgcs
+
+  - rank: C
+    abbr: TCC
+    name: "IEEE Transactions on Cloud Computing"
+    url: /journals/tcc
+    dblp: /journals/tcc/tcc
+
+  - rank: C
+    abbr: Integration
+    name: "Integration, the VLSI Journal"
+    url: /journals/integration
+    dblp: /journals/integration/integration
+
+  - rank: C
+    abbr: JETTA
+    name: "Journal of Electronic Testing-Theory and Applications"
+    url: /journals/et
+    dblp: /journals/et/et
+
+  - rank: C
+    abbr: JGC
+    name: "The Journal of Grid computing"
+    url: /journals/grid
+    dblp: /journals/grid/grid
+
+  - rank: C
+    abbr: RTS
+    name: "Real-Time Systems"
+    url: /journals/rts
+    dblp: /journals/rts/rts
+
+  - rank: C
+    abbr: TJSC
+    name: "The Journal of Supercomputing"
+    url: /journals/tjs
+    dblp: /journals/tjs/tjs
+
+  - rank: C
+    abbr: TCASI
+    name: "IEEE Transactions on Circuits and Systems I: Regular Papers"
+    url: /journals/tcasI
+    dblp: /journals/tcasI/tcasI
+
+  - rank: C
+    abbr: CCF-THPC
+    name: "CCF Transactions on High Performance Computing"
+    url: /journals/ccfthpc
+    dblp: /journals/ccfthpc/ccfthpc
+
+  - rank: C
+    abbr: TSUSC
+    name: "IEEE Transactions on Sustainable Computing"
+    url: /journals/tsusc
+    dblp: /journals/tsusc/tsusc
+
+  - rank: A
+    abbr: PPoPP
+    name: "ACM SIGPLAN Symposium on Principles & Practice of Parallel Programming"
+    url: /conf/ppopp
+    dblp: /conf/ppopp/ppopp
+
+  - rank: A
+    abbr: FAST
+    name: "Conference on File and Storage Technologies"
+    url: /conf/fast
+    dblp: /conf/fast/fast
+
+  - rank: A
+    abbr: DAC
+    name: "Design Automation Conference"
+    url: /conf/dac
+    dblp: /conf/dac/dac
+
+  - rank: A
+    abbr: HPCA
+    name: "High-Performance Computer Architecture"
+    url: /conf/hpca
+    dblp: /conf/hpca/hpca
+
+  - rank: A
+    abbr: MICRO
+    name: "IEEE/ACM International Symposium on Microarchitecture"
+    url: /conf/micro
+    dblp: /conf/micro/micro
+
+  - rank: A
+    abbr: SC
+    name: "International Conference for High Performance Computing, Networking, Storage, and Analysis"
+    url: /conf/sc
+    dblp: /conf/sc/sc
+
+  - rank: A
+    abbr: ASPLOS
+    name: "International Conference on Architectural Support for Programming Languages and Operating Systems"
+    url: /conf/asplos
+    dblp: /conf/asplos/asplos
+
+  - rank: A
+    abbr: ISCA
+    name: "International Symposium on Computer Architecture"
+    url: /conf/isca
+    dblp: /conf/isca/isca
+
+  - rank: A
+    abbr: USENIX ATC
+    name: "USENIX Annual Technical Conference"
+    url: /conf/usenix
+    dblp: /conf/usenix/usenix
+
+  - rank: A
+    abbr: EuroSys
+    name: "European Conference on Computer Systems"
+    url: /conf/eurosys
+    dblp: /conf/eurosys/eurosys
+
+  - rank: B
+    abbr: SOCC
+    name: "ACM Symposium on Cloud Computing"
+    url: /conf/cloud
+    dblp: /conf/cloud/socc
+
+  - rank: B
+    abbr: SPAA
+    name: "ACM Symposium on Parallelism in Algorithms and Architectures"
+    url: /conf/spaa
+    dblp: /conf/spaa/spaa
+
+  - rank: B
+    abbr: PODC
+    name: "ACM Symposium on Principles of Distributed Computing"
+    url: /conf/podc
+    dblp: /conf/podc/podc
+
+  - rank: B
+    abbr: FPGA
+    name: "ACM/SIGDA International Symposium on Field-Programmable Gate Arrays"
+    url: /conf/fpga
+    dblp: /conf/fpga/fpga
+
+  - rank: B
+    abbr: CGO
+    name: "Code Generation and Optimization"
+    url: /conf/cgo
+    dblp: /conf/cgo/cgo
+
+  - rank: B
+    abbr: DATE
+    name: "Design, Automation & Test in Europe"
+    url: /conf/date
+    dblp: /conf/date/date
+
+  - rank: B
+    abbr: HOT CHIPS
+    name: "ACM Symposium on High Performance Chips"
+    url: /conf/hotchips
+    dblp: /conf/hotchips/hotchips
+
+  - rank: B
+    abbr: CLUSTER
+    name: "IEEE International Conference on Cluster Computing"
+    url: /conf/cluster
+    dblp: /conf/cluster/cluster
+
+  - rank: B
+    abbr: ICCD
+    name: "International Conference on Computer Design"
+    url: /conf/iccd
+    dblp: /conf/iccd/iccd
+
+  - rank: B
+    abbr: ICCAD
+    name: "International Conference on Computer-Aided Design"
+    url: /conf/iccad
+    dblp: /conf/iccad/iccad
+
+  - rank: B
+    abbr: ICDCS
+    name: "International Conference on Distributed Computing Systems"
+    url: /conf/icdcs
+    dblp: /conf/icdcs/icdcs
+
+  - rank: B
+    abbr: CODES+ISSS
+    name: "International Conference on Hardware/Software Co-design and System Synthesis"
+    url: /conf/codes
+    dblp: /conf/codes/codes
+
+  - rank: B
+    abbr: HiPEAC
+    name: "International Conference on High Performance and Embedded Architectures and Compilers"
+    url: /conf/hipeac
+    dblp: /conf/hipeac/hipeac
+
+  - rank: B
+    abbr: SIGMETRICS
+    name: "International Conference on Measurement and Modeling of Computer Systems"
+    url: /conf/sigmetrics
+    dblp: /conf/sigmetrics/sigmetrics
+
+  - rank: B
+    abbr: PACT
+    name: "International Conference on Parallel Architectures and Compilation Techniques"
+    url: /conf/IEEEpact
+    dblp: /conf/IEEEpact/pact
+
+  - rank: B
+    abbr: PACT
+    name: "International Conference on Parallel Architectures and Compilation Techniques"
+    url: /conf/IEEEpact
+    dblp: /conf/IEEEpact/IEEEpact
+
+  - rank: B
+    abbr: ICPP
+    name: "International Conference on Parallel Processing"
+    url: /conf/icpp
+    dblp: /conf/icpp/icpp
+
+  - rank: B
+    abbr: ICS
+    name: "International Conference on Supercomputing"
+    url: /conf/ics
+    dblp: /conf/ics/ics
+
+  - rank: B
+    abbr: VEE
+    name: "International Conference on Virtual Execution Environments"
+    url: /conf/vee
+    dblp: /conf/vee/vee
+
+  - rank: B
+    abbr: IPDPS
+    name: "International Parallel & Distributed Processing Symposium"
+    url: /conf/ipps
+    dblp: /conf/ipps/ipdps
+
+  - rank: B
+    abbr: Performance
+    name: "International Symposium on Computer Performance, Modeling, Measurements and Evaluation"
+    url: /conf/performance
+    dblp: /conf/performance/performance
+
+  - rank: B
+    abbr: HPDC
+    name: "International Symposium on High Performance Distributed Computing"
+    url: /conf/hpdc
+    dblp: /conf/hpdc/hpdc
+
+  - rank: B
+    abbr: ITC
+    name: "International Test Conference"
+    url: /conf/itc
+    dblp: /conf/itc/itc
+
+  - rank: B
+    abbr: LISA
+    name: "Large Installation system Administration Conference"
+    url: /conf/lisa
+    dblp: /conf/lisa/lisa
+
+  - rank: B
+    abbr: MSST
+    name: "Mass Storage Systems and Technologies"
+    url: /conf/mss
+    dblp: /conf/mss/msst
+
+  - rank: B
+    abbr: RTAS
+    name: "Real-Time and Embedded Technology and Applications Symposium"
+    url: /conf/rtas
+    dblp: /conf/rtas/rtas
+
+  - rank: B
+    abbr: Euro-Par
+    name: "European Conference on Parallel and Distributed Computing"
+    url: /conf/europar
+    dblp: /conf/europar/europar
+
+  - rank: C
+    abbr: CF
+    name: "ACM International Conference on Computing Frontiers"
+    url: /conf/cf
+    dblp: /conf/cf/cf
+
+  - rank: C
+    abbr: SYSTOR
+    name: "ACM International Systems and Storage Conference"
+    url: /conf/systor
+    dblp: /conf/systor/systor
+
+  - rank: C
+    abbr: NOCS
+    name: "ACM/IEEE International Symposium on Networks-on-Chip"
+    url: /conf/nocs
+    dblp: /conf/nocs/nocs
+
+  - rank: C
+    abbr: ASAP
+    name: "Application-Specific Systems, Architectures, and Processors"
+    url: /conf/asap
+    dblp: /conf/asap/asap
+
+  - rank: C
+    abbr: ASP-DAC
+    name: "Asia and South Pacific Design Automation Conference"
+    url: /conf/aspdac
+    dblp: /conf/aspdac/aspdac
+
+  - rank: C
+    abbr: ETS
+    name: "European Test Symposium"
+    url: /conf/ets
+    dblp: /conf/ets/ets
+
+  - rank: C
+    abbr: FPL
+    name: "Field Programmable Logic and Applications"
+    url: /conf/fpl
+    dblp: /conf/fpl/fpl
+
+  - rank: C
+    abbr: FCCM
+    name: "Field-Programmable Custom Computing Machines"
+    url: /conf/fccm
+    dblp: /conf/fccm/fccm
+
+  - rank: C
+    abbr: GLSVLSI
+    name: "Great Lakes Symposium on VLSI"
+    url: /conf/glvlsi
+    dblp: /conf/glvlsi/glvlsi
+
+  - rank: C
+    abbr: ATS
+    name: "IEEE Asian Test Symposium"
+    url: /conf/ats
+    dblp: /conf/ats/ats
+
+  - rank: C
+    abbr: HPCC
+    name: "IEEE International Conference on High Performance Computing and Communications"
+    url: /conf/hpcc
+    dblp: /conf/hpcc/hpcc
+
+  - rank: C
+    abbr: HiPC
+    name: "IEEE International Conference on High Performance Computing, Data and Analytics"
+    url: /conf/hipc
+    dblp: /conf/hipc/hipc
+
+  - rank: C
+    abbr: MASCOTS
+    name: "IEEE International Symposium on Modeling, Analysis, and Simulation of Computer and Telecommunication Systems"
+    url: /conf/mascots
+    dblp: /conf/mascots/mascots
+
+  - rank: C
+    abbr: ISPA
+    name: "IEEE International Symposium on Parallel and Distributed Processing with Applications"
+    url: /conf/ispa
+    dblp: /conf/ispa/ispa
+
+  - rank: C
+    abbr: CCGRID
+    name: "IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing"
+    url: /conf/ccgrid
+    dblp: /conf/ccgrid/ccgrid
+
+  - rank: C
+    abbr: NPC
+    name: "IFIP International Conference on Network and Parallel Computing"
+    url: /conf/npc
+    dblp: /conf/npc/npc
+
+  - rank: C
+    abbr: ICA3PP
+    name: "International Conference on Algorithms and Architectures for Parallel Processing"
+    url: /conf/ica3pp
+    dblp: /conf/ica3pp/ica3pp
+
+  - rank: C
+    abbr: CASES
+    name: "International Conference on Compilers, Architectures, and Synthesis for Embedded Systems"
+    url: /conf/cases
+    dblp: /conf/cases/cases
+
+  - rank: C
+    abbr: FPT
+    name: "International Conference on Field-Programmable Technology"
+    url: /conf/fpt
+    dblp: /conf/icfpt/icfpt
+
+  - rank: C
+    abbr: FPT
+    name: "International Conference on Field-Programmable Technology"
+    url: /conf/fpt
+    dblp: /conf/fpt/fpt
+
+  - rank: C
+    abbr: ICPADS
+    name: "International Conference on Parallel and Distributed Systems"
+    url: /conf/icpads
+    dblp: /conf/icpads/icpads
+
+  - rank: C
+    abbr: ISCAS
+    name: "International Symposium on Circuits and Systems"
+    url: /conf/iscas
+    dblp: /conf/iscas/iscas
+
+  - rank: C
+    abbr: ISLPED
+    name: "International Symposium on Low Power Electronics and Design"
+    url: /conf/islped
+    dblp: /conf/islped/islped
+
+  - rank: C
+    abbr: ISPD
+    name: "International Symposium on Physical Design"
+    url: /conf/ispd
+    dblp: /conf/ispd/ispd
+
+  - rank: C
+    abbr: HotI
+    name: "Symposium on High-Performance Interconnects"
+    url: /conf/hoti
+    dblp: /conf/hoti/hoti
+
+  - rank: C
+    abbr: VTS
+    name: "VLSI Test Symposium"
+    url: /conf/vts
+    dblp: /conf/vts/vts
+
+  - rank: C
+    abbr: ITC-Asia
+    name: "International Test Conference in Asia"
+    url: /conf/itc-asia
+    dblp: /conf/itc-asia/itc-asia
+
+  - rank: A
+    abbr: JSAC
+    name: "IEEE Journal of Selected Areas in Communications"
+    url: /journals/jsac
+    dblp: /journals/jsac/jsac
+
+  - rank: A
+    abbr: TMC
+    name: "IEEE Transactions on Mobile Computing"
+    url: /journals/tmc
+    dblp: /journals/tmc/tmc
+
+  - rank: A
+    abbr: TON
+    name: "IEEE/ACM Transactions on Networking"
+    url: /journals/ton
+    dblp: /journals/ton/ton
+
+  - rank: B
+    abbr: TOIT
+    name: "ACM Transactions on Internet Technology"
+    url: /journals/toit
+    dblp: /journals/toit/toit
+
+  - rank: B
+    abbr: TOMCCAP
+    name: "ACM Transactions on Multimedia Computing, Communications and Applications"
+    url: /journals/tomccap
+    dblp: /journals/tomccap/tomccap
+
+  - rank: B
+    abbr: TOSN
+    name: "ACM Transactions on Sensor Networks"
+    url: /journals/tosn
+    dblp: /journals/tosn/tosn
+
+  - rank: B
+    abbr: CN
+    name: "Computer Networks"
+    url: /journals/cn
+    dblp: /journals/cn/cn
+
+  - rank: B
+    abbr: TCOM
+    name: "IEEE Transactions on Communications"
+    url: /journals/tcom
+    dblp: /journals/tcom/tcom
+
+  - rank: B
+    abbr: TWC
+    name: "IEEE Transactions on Wireless Communications"
+    url: /journals/twc
+    dblp: /journals/twc/twc
+
+  - rank: C
+    abbr: 
+    name: "Ad hoc Networks"
+    url: /journals/adhoc
+    dblp: /journals/adhoc/adhoc
+
+  - rank: C
+    abbr: CC
+    name: "Computer Communications"
+    url: /journals/comcom
+    dblp: /journals/comcom/comcom
+
+  - rank: C
+    abbr: TNSM
+    name: "IEEE Transactions on Network and Service Management"
+    url: /journals/tnsm
+    dblp: /journals/tnsm/tnsm
+
+  - rank: C
+    abbr: 
+    name: "IET Communications"
+    url: /journals/iet-com
+    dblp: /journals/iet-com/iet-com
+
+  - rank: C
+    abbr: JNCA
+    name: "Journal of Network and Computer Applications"
+    url: /journals/jnca
+    dblp: /journals/jnca/jnca
+
+  - rank: C
+    abbr: MONET
+    name: "Mobile Networks & Applications"
+    url: /journals/monet
+    dblp: /journals/monet/monet
+
+  - rank: C
+    abbr: 
+    name: "Networks"
+    url: /journals/networks
+    dblp: /journals/networks/networks
+
+  - rank: C
+    abbr: PPNA
+    name: "Peer-to-Peer Networking and Applications"
+    url: /journals/ppna
+    dblp: /journals/ppna/ppna
+
+  - rank: C
+    abbr: WCMC
+    name: "Wireless Communications & Mobile Computing"
+    url: /journals/wicomm
+    dblp: /journals/wicomm/wicomm
+
+  - rank: C
+    abbr: 
+    name: "Wireless Networks"
+    url: /journals/winet
+    dblp: /journals/winet/winet
+
+  - rank: C
+    abbr: IOT
+    name: "IEEE Internet of Things Journal"
+    url: /journals/iotj
+    dblp: /journals/iotj/iotj
+
+  - rank: A
+    abbr: SIGCOMM
+    name: "ACM International Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication"
+    url: /conf/sigcomm
+    dblp: /conf/sigcomm/sigcomm
+
+  - rank: A
+    abbr: MobiCom
+    name: "ACM International Conference on Mobile Computing and Networking"
+    url: /conf/mobicom
+    dblp: /conf/mobicom/mobicom
+
+  - rank: A
+    abbr: INFOCOM
+    name: "IEEE International Conference on Computer Communications"
+    url: /conf/infocom
+    dblp: /conf/infocom/infocom
+
+  - rank: A
+    abbr: NSDI
+    name: "Symposium on Network System Design and Implementation"
+    url: /conf/nsdi
+    dblp: /conf/nsdi/nsdi
+
+  - rank: B
+    abbr: SenSys
+    name: "ACM Conference on Embedded Networked Sensor Systems"
+    url: /conf/sensys
+    dblp: /conf/sensys/sensys
+
+  - rank: B
+    abbr: CoNEXT
+    name: "ACM International Conference on emerging Networking EXperiments and Technologies"
+    url: /conf/conext
+    dblp: /conf/conext/conext
+
+  - rank: B
+    abbr: SECON
+    name: "IEEE Communications Society Conference on Sensor and Ad Hoc Communications and Networks"
+    url: /conf/secon
+    dblp: /conf/secon/secon
+
+  - rank: B
+    abbr: IPSN
+    name: "International Conference on Information Processing in Sensor Networks"
+    url: /conf/ipsn
+    dblp: /conf/ipsn/ipsn
+
+  - rank: B
+    abbr: MobiSys
+    name: "International Conference on Mobile Systems, Applications, and Services"
+    url: /conf/mobisys
+    dblp: /conf/mobisys/mobisys
+
+  - rank: B
+    abbr: ICNP
+    name: "International Conference on Network Protocols"
+    url: /conf/icnp
+    dblp: /conf/icnp/icnp
+
+  - rank: B
+    abbr: MobiHoc
+    name: "International Symposium on Mobile Ad Hoc Networking and Computing"
+    url: /conf/mobihoc
+    dblp: /conf/mobihoc/mobihoc
+
+  - rank: B
+    abbr: NOSSDAV
+    name: "International Workshop on Network and Operating System Support for Digital Audio and Video"
+    url: /conf/nossdav
+    dblp: /conf/nossdav/nossdav
+
+  - rank: B
+    abbr: IWQoS
+    name: "International Workshop on Quality of Service"
+    url: /conf/iwqos
+    dblp: /conf/iwqos/iwqos
+
+  - rank: B
+    abbr: IMC
+    name: "Internet Measurement Conference"
+    url: /conf/imc
+    dblp: /conf/imc/imc
+
+  - rank: C
+    abbr: ANCS
+    name: "Architectures for Networking and Communications Systems"
+    url: /conf/ancs
+    dblp: /conf/ancs/ancs
+
+  - rank: C
+    abbr: APNOMS
+    name: "Asia-Pacific Network Operations and Management Symposium"
+    url: /conf/apnoms
+    dblp: /conf/apnoms/apnoms
+
+  - rank: C
+    abbr: FORTE
+    name: "Formal Techniques for Networked and Distributed Systems"
+    url: /conf/forte
+    dblp: /conf/forte/forte
+
+  - rank: C
+    abbr: LCN
+    name: "IEEE Conference on Local Computer Networks"
+    url: /conf/lcn
+    dblp: /conf/lcn/lcn
+
+  - rank: C
+    abbr: GLOBECOM
+    name: "IEEE Global Communications Conference"
+    url: /conf/globecom
+    dblp: /conf/globecom/globecom
+
+  - rank: C
+    abbr: ICC
+    name: "IEEE International Conference on Communications"
+    url: /conf/icc
+    dblp: /conf/icc/icc
+
+  - rank: C
+    abbr: ICCCN
+    name: "IEEE International Conference on Computer Communications and Networks"
+    url: /conf/icccn
+    dblp: /conf/icccn/icccn
+
+  - rank: C
+    abbr: MASS
+    name: "IEEE International Conference on Mobile Ad-hoc and Sensor Systems"
+    url: /conf/mass
+    dblp: /conf/mass/mass
+
+  - rank: C
+    abbr: P2P
+    name: "IEEE International Conference on P2P Computing"
+    url: /conf/p2p
+    dblp: /conf/p2p/p2p
+
+  - rank: C
+    abbr: IPCCC
+    name: "IEEE International Performance Computing and Communications Conference"
+    url: /conf/ipccc
+    dblp: /conf/ipccc/ipccc
+
+  - rank: C
+    abbr: WoWMoM
+    name: "IEEE International Symposium on a World of Wireless Mobile and Multimedia Networks"
+    url: /conf/wowmom
+    dblp: /conf/wowmom/wowmom
+
+  - rank: C
+    abbr: ISCC
+    name: "IEEE Symposium on Computers and Communications"
+    url: /conf/iscc
+    dblp: /conf/iscc/iscc
+
+  - rank: C
+    abbr: WCNC
+    name: "IEEE Wireless Communications & Networking Conference"
+    url: /conf/wcnc
+    dblp: /conf/wcnc/wcnc
+
+  - rank: C
+    abbr: Networking
+    name: "IFIP International Conferences on Networking"
+    url: /conf/networking
+    dblp: /conf/networking/networking
+
+  - rank: C
+    abbr: IM
+    name: "IFIP/IEEE International Symposium on Integrated Network Management"
+    url: /conf/im
+    dblp: /conf/im/im
+
+  - rank: C
+    abbr: MSN
+    name: "International Conference on Mobile Ad-hoc and Sensor Networks"
+    url: /conf/msn
+    dblp: /conf/msn/msn
+
+  - rank: C
+    abbr: MSWiM
+    name: "International Conference on Modeling, Analysis and Simulation of Wireless and Mobile Systems"
+    url: /conf/mswim
+    dblp: /conf/mswim/mswim
+
+  - rank: C
+    abbr: WASA
+    name: "International Conference on Wireless Algorithms, Systems, and Applications"
+    url: /conf/wasa
+    dblp: /conf/wasa/wasa
+
+  - rank: C
+    abbr: HotNets
+    name: "The Workshop on Hot Topics in Networks"
+    url: /conf/hotnets
+    dblp: /conf/hotnets/hotnets
+
+  - rank: C
+    abbr: APNet
+    name: "Asia-Pacific Workshop on Networking"
+    url: /conf/apnet
+    dblp: /conf/apnet/apnet
+
+  - rank: A
+    abbr: TDSC
+    name: "IEEE Transactions on Dependable and Secure Computing"
+    url: /journals/tdsc
+    dblp: /journals/tdsc/tdsc
+
+  - rank: A
+    abbr: TIFS
+    name: "IEEE Transactions on Information Forensics and Security"
+    url: /journals/tifs
+    dblp: /journals/tifs/tifs
+
+  - rank: A
+    abbr: 
+    name: "Journal of Cryptology"
+    url: /journals/joc
+    dblp: /journals/joc/joc
+
+  - rank: B
+    abbr: TOPS
+    name: "ACM Transactions on Privacy and Security"
+    url: /journals/tissec
+    dblp: /journals/tissec/tissec
+
+  - rank: B
+    abbr: 
+    name: "Computers & Security"
+    url: /journals/compsec
+    dblp: /journals/compsec/compsec
+
+  - rank: B
+    abbr: 
+    name: "Designs, Codes and Cryptography"
+    url: /journals/dcc
+    dblp: /journals/dcc/dcc
+
+  - rank: B
+    abbr: JCS
+    name: "Journal of Computer Security"
+    url: /journals/jcs
+    dblp: /journals/jcs/jcs
+
+  - rank: C
+    abbr: CLSR
+    name: "Computer Law and Security Review"
+    url: /journals/clsr
+    dblp: /journals/clsr/clsr
+
+  - rank: C
+    abbr: 
+    name: "EURASIP Journal on Information Security"
+    url: /journals/ejisec
+    dblp: /journals/ejisec/ejisec
+
+  - rank: C
+    abbr: 
+    name: "IET Information Security"
+    url: /journals/iet-ifs
+    dblp: /journals/iet-ifs/iet-ifs
+
+  - rank: C
+    abbr: IMCS
+    name: "Information Management & Computer Security"
+    url: /journals/imcs
+    dblp: /journals/imcs/imcs
+
+  - rank: C
+    abbr: IJICS
+    name: "International Journal of Information and Computer Security"
+    url: /journals/ijics
+    dblp: /journals/ijics/ijics
+
+  - rank: C
+    abbr: IJISP
+    name: "International Journal of Information Security and Privacy"
+    url: /journals/ijisp
+    dblp: /journals/ijisp/ijisp
+
+  - rank: C
+    abbr: JISA
+    name: "Journal of Information Security and Application"
+    url: /journals/istr
+    dblp: /journals/istr/istr
+
+  - rank: C
+    abbr: SCN
+    name: "Security and Communication Networks"
+    url: /journals/scn
+    dblp: /journals/scn/scn
+
+  - rank: C
+    abbr: 
+    name: "Cybersecurity"
+    url: /journals/cybersec
+    dblp: /journals/cybersec/cybersec
+
+  - rank: A
+    abbr: CCS
+    name: "ACM Conference on Computer and Communications Security"
+    url: /conf/ccs
+    dblp: /conf/ccs/ccs
+
+  - rank: A
+    abbr: EUROCRYPT
+    name: "European Cryptology Conference"
+    url: /conf/eurocrypt
+    dblp: /conf/eurocrypt/eurocrypt
+
+  - rank: A
+    abbr: S&P
+    name: "IEEE Symposium on Security and Privacy"
+    url: /conf/sp
+    dblp: /conf/sp/sp
+
+  - rank: A
+    abbr: CRYPTO
+    name: "International Cryptology Conference"
+    url: /conf/crypto
+    dblp: /conf/crypto/crypto
+
+  - rank: A
+    abbr: USENIX Security
+    name: "Usenix Security Symposium"
+    url: /conf/uss
+    dblp: /conf/uss/uss
+
+  - rank: A
+    abbr: NDSS
+    name: "ISOC Network and Distributed System Security Symposium"
+    url: /conf/ndss
+    dblp: /conf/ndss/ndss
+
+  - rank: B
+    abbr: ACSAC
+    name: "Annual Computer Security Applications Conference"
+    url: /conf/acsac
+    dblp: /conf/acsac/acsac
+
+  - rank: B
+    abbr: ASIACRYPT
+    name: "Annual International Conference on the Theory and Application of Cryptology and Information Security"
+    url: /conf/asiacrypt
+    dblp: /conf/asiacrypt/asiacrypt
+
+  - rank: B
+    abbr: ESORICS
+    name: "European Symposium on Research in Computer Security"
+    url: /conf/esorics
+    dblp: /conf/esorics/esorics
+
+  - rank: B
+    abbr: FSE
+    name: "Fast Software Encryption"
+    url: /conf/fse
+    dblp: /conf/fse/fse
+
+  - rank: B
+    abbr: CSFW
+    name: "IEEE Computer Security Foundations Workshop"
+    url: /conf/csfw
+    dblp: /conf/csfw/csfw
+
+  - rank: B
+    abbr: SRDS
+    name: "IEEE International Symposium on Reliable Distributed Systems"
+    url: /conf/srds
+    dblp: /conf/srds/srds
+
+  - rank: B
+    abbr: CHES
+    name: "International Conference on Cryptographic Hardware and Embedded Systems"
+    url: /conf/ches
+    dblp: /conf/ches/ches
+
+  - rank: B
+    abbr: DSN
+    name: "International Conference on Dependable Systems and Networks"
+    url: /conf/dsn
+    dblp: /conf/dsn/dsn
+
+  - rank: B
+    abbr: RAID
+    name: "International Symposium on Recent Advances in Intrusion Detection"
+    url: /conf/raid
+    dblp: /conf/raid/raid
+
+  - rank: B
+    abbr: PKC
+    name: "International Workshop on Practice and Theory in Public Key Cryptography"
+    url: /conf/pkc
+    dblp: /conf/pkc/pkc
+
+  - rank: B
+    abbr: TCC
+    name: "Theory of Cryptography Conference"
+    url: /conf/tcc
+    dblp: /conf/tcc/tcc
+
+  - rank: C
+    abbr: WiSec
+    name: "ACM Conference on Security and Privacy in Wireless and Mobile Networks"
+    url: /conf/wisec
+    dblp: /conf/wisec/wisec
+
+  - rank: C
+    abbr: SACMAT
+    name: "ACM Symposium on Access Control Models and Technologies"
+    url: /conf/sacmat
+    dblp: /conf/sacmat/sacmat
+
+  - rank: C
+    abbr: DRM
+    name: "ACM Workshop on Digital Rights Management"
+    url: /conf/drm
+    dblp: /conf/drm/drm
+
+  - rank: C
+    abbr: IH&MMSec
+    name: "ACM Workshop on Information Hiding and Multimedia Security"
+    url: /conf/ih
+    dblp: /conf/ih/ihmmsec
+
+  - rank: C
+    abbr: IH&MMSec
+    name: "ACM Workshop on Information Hiding and Multimedia Security"
+    url: /conf/ih
+    dblp: /conf/ih/ih
+
+  - rank: C
+    abbr: ACNS
+    name: "Applied Cryptography and Network Security"
+    url: /conf/acns
+    dblp: /conf/acns/acns
+
+  - rank: C
+    abbr: AsiaCCS
+    name: "Asia Conference on Computer and Communications Security"
+    url: /conf/asiaccs
+    dblp: /conf/ccs/asiaccs
+
+  - rank: C
+    abbr: AsiaCCS
+    name: "Asia Conference on Computer and Communications Security"
+    url: /conf/asiaccs
+    dblp: /conf/asiaccs/asiaccs
+
+  - rank: C
+    abbr: ACISP
+    name: "AustralasiaConferenceonInformation SecurityandPrivacy"
+    url: /conf/acisp
+    dblp: /conf/acisp/acisp
+
+  - rank: C
+    abbr: CT-RSA
+    name: "RSA Conference, Cryptographers' Track"
+    url: /conf/ctrsa
+    dblp: /conf/ctrsa/ctrsa
+
+  - rank: C
+    abbr: DIMVA
+    name: "Detection of Intrusions and Malware &Vulnerability Assessment"
+    url: /conf/dimva
+    dblp: /conf/dimva/dimva
+
+  - rank: C
+    abbr: DFRWS
+    name: "Digital Forensic Research Workshop"
+    url: /conf/dfrws
+    dblp: /conf/dfrws/dfrws
+
+  - rank: C
+    abbr: FC
+    name: "Financial Cryptography and Data Security"
+    url: /conf/fc
+    dblp: /conf/fc/fc
+
+  - rank: C
+    abbr: TrustCom
+    name: "IEEE International Conference on Trust,Security and Privacy in Computing and Communications"
+    url: /conf/trustcom
+    dblp: /conf/trustcom/trustcom
+
+  - rank: C
+    abbr: SEC
+    name: "IFIP International Information Security Conference"
+    url: /conf/sec
+    dblp: /conf/sec/sec
+
+  - rank: C
+    abbr: IFIP WG 11.9
+    name: "IFIP WG 11.9 International Conference on Digital Forensics"
+    url: /conf/ifip11-9
+    dblp: /conf/ifip11-9/df
+
+  - rank: C
+    abbr: ISC
+    name: "Information Security Conference"
+    url: /conf/isw
+    dblp: /conf/isw/isc
+
+  - rank: C
+    abbr: ISC
+    name: "Information Security Conference"
+    url: /conf/isw
+    dblp: /conf/isw/isw
+
+  - rank: C
+    abbr: ICDF2C
+    name: "International Conference on Digital Forensics & Cyber Crime"
+    url: /conf/icdf2c
+    dblp: /conf/icdf2c/icdf2c
+
+  - rank: C
+    abbr: ICICS
+    name: "International Conference on Information and Communications Security"
+    url: /conf/icics
+    dblp: /conf/icics/icics
+
+  - rank: C
+    abbr: SecureComm
+    name: "International Conference on Security and Privacy in Communication Networks"
+    url: /conf/securecomm
+    dblp: /conf/securecomm/securecomm
+
+  - rank: C
+    abbr: NSPW
+    name: "New Security Paradigms Workshop"
+    url: /conf/nspw
+    dblp: /conf/nspw/nspw
+
+  - rank: C
+    abbr: PAM
+    name: "Passive and Active Measurement Conference"
+    url: /conf/pam
+    dblp: /conf/pam/pam
+
+  - rank: C
+    abbr: PETS
+    name: "Privacy Enhancing Technologies Symposium"
+    url: /conf/pet
+    dblp: /conf/pet/pets
+
+  - rank: C
+    abbr: PETS
+    name: "Privacy Enhancing Technologies Symposium"
+    url: /conf/pet
+    dblp: /conf/pet/pet
+
+  - rank: C
+    abbr: SAC
+    name: "Selected Areas in Cryptography"
+    url: /conf/sacrypt
+    dblp: /conf/sacrypt/sacrypt
+
+  - rank: C
+    abbr: SOUPS
+    name: "Symposium On Usable Privacy and Security"
+    url: /conf/soups
+    dblp: /conf/soups/soups
+
+  - rank: C
+    abbr: HotSec
+    name: "USENIX Workshop on Hot Topics in Security"
+    url: /conf/uss/
+    dblp: /conf/uss/hotsec
+
+  - rank: C
+    abbr: EuroS&P
+    name: "IEEE European Symposium on Security and Privacy"
+    url: /conf/eurosp
+    dblp: /conf/eurosp/eurosp
+
+  - rank: C
+    abbr: Inscrypt
+    name: "International Conference on Information Security and Cryptology"
+    url: /conf/icisc
+    dblp: /conf/icisc/icisc
+
+  - rank: A
+    abbr: TOPLAS
+    name: "ACM Transactions on Programming Languages & Systems"
+    url: /journals/toplas
+    dblp: /journals/toplas/toplas
+
+  - rank: A
+    abbr: TOSEM
+    name: "ACM Transactions on Software Engineering and Methodology"
+    url: /journals/tosem
+    dblp: /journals/tosem/tosem
+
+  - rank: A
+    abbr: TSE
+    name: "IEEE Transactions on Software Engineering"
+    url: /journals/tse
+    dblp: /journals/tse/tse
+
+  - rank: A
+    abbr: TSC
+    name: "IEEE Transactions on Service Computing"
+    url: /journals/tsc
+    dblp: /journals/tsc/tsc
+
+  - rank: B
+    abbr: ASE
+    name: "Automated Software Engineering"
+    url: /journals/ase
+    dblp: /journals/ase/ase
+
+  - rank: B
+    abbr: ESE
+    name: "Empirical Software Engineering"
+    url: /journals/ese
+    dblp: /journals/ese/ese
+
+  - rank: B
+    abbr: IETS
+    name: "IET Software"
+    url: /journals/iee
+    dblp: /journals/iee/iee-s
+
+  - rank: B
+    abbr: IST
+    name: "Information and Software Technology"
+    url: /journals/infsof
+    dblp: /journals/infsof/infsof
+
+  - rank: B
+    abbr: JFP
+    name: "Journal of Functional Programming"
+    url: /journals/jfp
+    dblp: /journals/jfp/jfp
+
+  - rank: B
+    abbr: 
+    name: "Journal of Software: Evolution and Process"
+    url: /journals/smr
+    dblp: /journals/smr/smr
+
+  - rank: B
+    abbr: JSS
+    name: "Journal of Systems and Software"
+    url: /journals/jss
+    dblp: /journals/jss/jss
+
+  - rank: B
+    abbr: RE
+    name: "Requirements Engineering"
+    url: /journals/re
+    dblp: /journals/re/re
+
+  - rank: B
+    abbr: SCP
+    name: "Science of Computer Programming"
+    url: /journals/scp
+    dblp: /journals/scp/scp
+
+  - rank: B
+    abbr: SoSyM
+    name: "Software and System Modeling"
+    url: /journals/sosym
+    dblp: /journals/sosym/sosym
+
+  - rank: B
+    abbr: STVR
+    name: "Software Testing, Verification and Reliability"
+    url: /journals/stvr
+    dblp: /journals/stvr/stvr
+
+  - rank: B
+    abbr: SPE
+    name: "Software: Practice and Experience"
+    url: /journals/spe
+    dblp: /journals/spe/spe
+
+  - rank: C
+    abbr: CL
+    name: "Computer Languages, Systems and Structures"
+    url: /journals/cl
+    dblp: /journals/cl/cl
+
+  - rank: C
+    abbr: IJSEKE
+    name: "International Journal on Software Engineering and Knowledge Engineering"
+    url: /journals/ijseke
+    dblp: /journals/ijseke/ijseke
+
+  - rank: C
+    abbr: STTT
+    name: "International Journal on Software Tools for Technology Transfer"
+    url: /journals/sttt
+    dblp: /journals/sttt/sttt
+
+  - rank: C
+    abbr: JLAP
+    name: "Journal of Logic and Algebraic Programming"
+    url: /journals/jlap
+    dblp: /journals/jlap/jlap
+
+  - rank: C
+    abbr: JLAP
+    name: "Journal of Logic and Algebraic Programming"
+    url: /journals/jlap
+    dblp: /journals/jlp/jlp
+
+  - rank: C
+    abbr: JWE
+    name: "Journal of Web Engineering"
+    url: /journals/jwe
+    dblp: /journals/jwe/jwe
+
+  - rank: C
+    abbr: SOCA
+    name: "Service Oriented Computing and Applications"
+    url: /journals/soca
+    dblp: /journals/soca/soca
+
+  - rank: C
+    abbr: SQJ
+    name: "Software Quality Journal"
+    url: /journals/sqj
+    dblp: /journals/sqj/sqj
+
+  - rank: C
+    abbr: TPLP
+    name: "Theory and Practice of Logic Programming"
+    url: /journals/tplp
+    dblp: /journals/tplp/tplp
+
+  - rank: C
+    abbr: PACM PL
+    name: "Proceedings of the ACM on Programming Languages"
+    url: /journals/pacmpl
+    dblp: /journals/pacmpl/pacmpl
+
+  - rank: A
+    abbr: PLDI
+    name: "ACM SIGPLAN Symposium on Programming Language Design & Implementation"
+    url: /conf/pldi
+    dblp: /conf/pldi/pldi
+
+  - rank: A
+    abbr: POPL
+    name: "ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages"
+    url: /conf/popl
+    dblp: /conf/popl/popl
+
+  - rank: A
+    abbr: FSE/ESEC
+    name: "ACM SIGSOFT Symposium on the Foundation of Software Engineering/European Software Engineering Conference"
+    url: /conf/sigsoft
+    dblp: /conf/sigsoft/fse
+
+  - rank: A
+    abbr: SOSP
+    name: "ACM Symposium on Operating Systems Principles"
+    url: /conf/sosp
+    dblp: /conf/sosp/sosp
+
+  - rank: A
+    abbr: OOPSLA
+    name: "Conference on Object-Oriented Programming Systems, Languages,and Applications"
+    url: /conf/oopsla
+    dblp: /conf/oopsla/oopsla
+
+  - rank: A
+    abbr: ASE
+    name: "International Conference on Automated Software Engineering"
+    url: /conf/kbse
+    dblp: /conf/kbse/ase
+
+  - rank: A
+    abbr: ASE
+    name: "International Conference on Automated Software Engineering"
+    url: /conf/kbse
+    dblp: /conf/kbse/kbse
+
+  - rank: A
+    abbr: ICSE
+    name: "International Conference on Software Engineering"
+    url: /conf/icse
+    dblp: /conf/icse/icse
+
+  - rank: A
+    abbr: ISSTA
+    name: "International Symposium on Software Testing and Analysis"
+    url: /conf/issta
+    dblp: /conf/issta/issta
+
+  - rank: A
+    abbr: OSDI
+    name: "USENIX Symposium on Operating Systems Design and Implementations"
+    url: /conf/osdi
+    dblp: /conf/osdi/osdi
+
+  - rank: A
+    abbr: FM
+    name: "International Symposium on Formal Methods"
+    url: /conf/fm
+    dblp: /conf/fm/fm
+
+  - rank: B
+    abbr: ECOOP
+    name: "European Conference on Object-Oriented Programming"
+    url: /conf/ecoop
+    dblp: /conf/ecoop/ecoop
+
+  - rank: B
+    abbr: ETAPS
+    name: "European Joint Conferences on Theory and Practice of Software"
+    url: /conf/etaps
+    dblp: /conf/esop/esop
+
+  - rank: B
+    abbr: ETAPS
+    name: "European Joint Conferences on Theory and Practice of Software"
+    url: /conf/etaps
+    dblp: /conf/fase/fase
+
+  - rank: B
+    abbr: ETAPS
+    name: "European Joint Conferences on Theory and Practice of Software"
+    url: /conf/etaps
+    dblp: /conf/fossacs/fossacs
+
+  - rank: B
+    abbr: ETAPS
+    name: "European Joint Conferences on Theory and Practice of Software"
+    url: /conf/etaps
+    dblp: /conf/tacas/tacas
+
+  - rank: B
+    abbr: ETAPS
+    name: "European Joint Conferences on Theory and Practice of Software"
+    url: /conf/etaps
+    dblp: /conf/post/post
+
+  - rank: B
+    abbr: ETAPS
+    name: "European Joint Conferences on Theory and Practice of Software"
+    url: /conf/etaps
+    dblp: /conf/spin/spin
+
+  - rank: B
+    abbr: ICPC
+    name: "IEEE International Conference on Program Comprehension"
+    url: /conf/iwpc
+    dblp: /conf/iwpc/icpc
+
+  - rank: B
+    abbr: ICPC
+    name: "IEEE International Conference on Program Comprehension"
+    url: /conf/iwpc
+    dblp: /conf/iwpc/iwpc
+
+  - rank: B
+    abbr: RE
+    name: "IEEE International Requirement Engineering Conference"
+    url: /conf/re
+    dblp: /conf/re/re
+
+  - rank: B
+    abbr: RE
+    name: "IEEE International Requirement Engineering Conference"
+    url: /conf/re
+    dblp: /conf/icre/icre
+
+  - rank: B
+    abbr: CAiSE
+    name: "International Conference on Advanced Information Systems Engineering"
+    url: /conf/caise
+    dblp: /conf/caise/caise
+
+  - rank: B
+    abbr: ICFP
+    name: "International Conference on Function Programming"
+    url: /conf/icfp
+    dblp: /conf/icfp/icfp
+
+  - rank: B
+    abbr: LCTES
+    name: "International Conference on Languages,Compilers, Tools and Theory for Embedded Systems"
+    url: /conf/lctrts
+    dblp: /conf/lctrts/lctes
+
+  - rank: B
+    abbr: MoDELS
+    name: "International Conference on Model Driven Engineering Languages and Systems"
+    url: /conf/models
+    dblp: /conf/models/models
+
+  - rank: B
+    abbr: CP
+    name: "International Conference on Principles and Practice of Constraint Programming"
+    url: /conf/cp
+    dblp: /conf/cp/cp
+
+  - rank: B
+    abbr: ICSOC
+    name: "International Conference on Service Oriented Computing"
+    url: /conf/icsoc
+    dblp: /conf/icsoc/icsoc
+
+  - rank: B
+    abbr: SANER
+    name: "International Conference on Software Analysis, Evolution, and Reengineering"
+    url: /conf/wcre
+    dblp: /conf/wcre/saner
+
+  - rank: B
+    abbr: SANER
+    name: "International Conference on Software Analysis, Evolution, and Reengineering"
+    url: /conf/wcre
+    dblp: /conf/wcre/wcre
+
+  - rank: B
+    abbr: ICSME
+    name: "International Conference on Software Maintenance and Evolution"
+    url: /conf/icsm
+    dblp: /conf/icsm/icsme
+
+  - rank: B
+    abbr: ICSME
+    name: "International Conference on Software Maintenance and Evolution"
+    url: /conf/icsm
+    dblp: /conf/icsm/icsm
+
+  - rank: B
+    abbr: VMCAI
+    name: "International Conference on Verification,Model Checking, and Abstract Interpretation"
+    url: /conf/vmcai
+    dblp: /conf/vmcai/vmcai
+
+  - rank: B
+    abbr: ICWS
+    name: "International Conference on Web Services(Research Track)"
+    url: /conf/icws
+    dblp: /conf/icws/icws
+
+  - rank: B
+    abbr: Middleware
+    name: "International Middleware Conference"
+    url: /conf/middleware
+    dblp: /conf/middleware/middleware
+
+  - rank: B
+    abbr: SAS
+    name: "International Static Analysis Symposium"
+    url: /conf/sas
+    dblp: /conf/sas/sas
+
+  - rank: B
+    abbr: ESEM
+    name: "International Symposium on Empirical Software Engineering and Measurement"
+    url: /conf/esem
+    dblp: /conf/esem/esem
+
+  - rank: B
+    abbr: ISSRE
+    name: "International Symposium on Software Reliability Engineering"
+    url: /conf/issre
+    dblp: /conf/issre/issre
+
+  - rank: B
+    abbr: HotOS
+    name: "USENIX Workshop on Hot Topics in Operating Systems"
+    url: /conf/hotos
+    dblp: /conf/hotos/hotos
+
+  - rank: C
+    abbr: PEPM
+    name: "ACM SIGPLAN Workshop on Partial Evaluation and Program Manipulation"
+    url: /conf/pepm
+    dblp: /conf/pepm/pepm
+
+  - rank: C
+    abbr: PASTE
+    name: "ACMSIGPLAN-SIGSOFT Workshop on Program Analysis for Software Tools and Engineering"
+    url: /conf/paste
+    dblp: /conf/paste/paste
+
+  - rank: C
+    abbr: APLAS
+    name: "Asian Symposium on Programming Languages and Systems"
+    url: /conf/aplas
+    dblp: /conf/aplas/aplas
+
+  - rank: C
+    abbr: APSEC
+    name: "Asia-Pacific Software Engineering Conference"
+    url: /conf/apsec
+    dblp: /conf/apsec/apsec
+
+  - rank: C
+    abbr: EASE
+    name: "Evaluation and Assessment in Software Engineering"
+    url: /conf/ease
+    dblp: /conf/ease/ease
+
+  - rank: C
+    abbr: ICECCS
+    name: "IEEE International Conference on Engineering of Complex Computer Systems"
+    url: /conf/iceccs
+    dblp: /conf/iceccs/iceccs
+
+  - rank: C
+    abbr: ICST
+    name: "IEEE International Conference on Software Testing, Verification and Validation"
+    url: /conf/icst
+    dblp: /conf/icst/icst
+
+  - rank: C
+    abbr: ISPASS
+    name: "IEEE International Symposium on Performance Analysis of Systems and Software"
+    url: /conf/ispass
+    dblp: /conf/ispass/ispass
+
+  - rank: C
+    abbr: SCAM
+    name: "IEEE International Working Conference on Source Code Analysis and Manipulation"
+    url: /conf/scam
+    dblp: /conf/scam/scam
+
+  - rank: C
+    abbr: COMPSAC
+    name: "International Computer Software and Applications Conference"
+    url: /conf/compsac
+    dblp: /conf/compsac/compsac
+
+  - rank: C
+    abbr: ICFEM
+    name: "International Conference on Formal Engineering Methods"
+    url: /conf/icfem
+    dblp: /conf/icfem/icfem
+
+  - rank: C
+    abbr: TOOLS
+    name: "International Conference on Objects, Models, Components, Patterns"
+    url: /conf/tools
+    dblp: /conf/tools/tools
+
+  - rank: C
+    abbr: QSIC
+    name: "International Conference on Quality Software"
+    url: /conf/qsic
+    dblp: /conf/qsic/qsic
+
+  - rank: C
+    abbr: SCC
+    name: "International Conference on Service Computing"
+    url: /conf/IEEEscc
+    dblp: /conf/IEEEscc/scc
+
+  - rank: C
+    abbr: ICSSP
+    name: "International Conference on Software and System Process"
+    url: /conf/ispw
+    dblp: /conf/ispw/icssp
+
+  - rank: C
+    abbr: ICSSP
+    name: "International Conference on Software and System Process"
+    url: /conf/ispw
+    dblp: /conf/ispw/icsp
+
+  - rank: C
+    abbr: SEKE
+    name: "International Conference on Software Engineering and Knowledge Engineering"
+    url: /conf/seke
+    dblp: /conf/seke/seke
+
+  - rank: C
+    abbr: QRS
+    name: "International Conference on Software Quality, Reliability and Security"
+    url: /conf/qrs
+    dblp: /conf/qrs/qrs
+
+  - rank: C
+    abbr: ICSR
+    name: "International Conference on Software Reuse"
+    url: /conf/icsr
+    dblp: /conf/icsr/icsr
+
+  - rank: C
+    abbr: ICWE
+    name: "International Conference on Web Engineering"
+    url: /conf/icwe
+    dblp: /conf/icwe/icwe
+
+  - rank: C
+    abbr: SPIN
+    name: "International SPIN Workshop on Model Checking of Software"
+    url: /conf/spin
+    dblp: /conf/spin/spin
+
+  - rank: C
+    abbr: ATVA
+    name: "International Symposium on Automated Technology for Verification and Analysis"
+    url: /conf/atva
+    dblp: /conf/atva/atva
+
+  - rank: C
+    abbr: LOPSTR
+    name: "International Symposium on Logic-based Program Synthesis and Transformation"
+    url: /conf/lopstr
+    dblp: /conf/lopstr/lopstr
+
+  - rank: C
+    abbr: TASE
+    name: "International Symposium on Theoretical Aspects of Software Engineering"
+    url: /conf/tase
+    dblp: /conf/tase/tase
+
+  - rank: C
+    abbr: MSR
+    name: "Mining Software Repositories"
+    url: /conf/msr
+    dblp: /conf/msr/msr
+
+  - rank: C
+    abbr: REFSQ
+    name: "Requirements Engineering: Foundation for Software Quality"
+    url: /conf/refsq
+    dblp: /conf/refsq/refsq
+
+  - rank: C
+    abbr: WICSA
+    name: "Working IEEE/IFIP Conference on Software Architecture"
+    url: /conf/wicsa
+    dblp: /conf/wicsa/wicsa
+
+  - rank: C
+    abbr: Internetware
+    name: "The Asia-Pacific Symposium on Internetware"
+    url: /conf/internetware
+    dblp: /conf/internetware/internetware
+
+  - rank: C
+    abbr: RV
+    name: "International Conference on Runtime Verification"
+    url: /conf/rv
+    dblp: /conf/rv/rv
+
+  - rank: A
+    abbr: TODS
+    name: "ACM Transactions on Database Systems"
+    url: /journals/tods
+    dblp: /journals/tods/tods
+
+  - rank: A
+    abbr: TOIS
+    name: "ACM Transactions on Information Systems"
+    url: /journals/tois
+    dblp: /journals/tois/tois
+
+  - rank: A
+    abbr: TKDE
+    name: "IEEE Transactions on Knowledge and Data Engineering"
+    url: /journals/tkde
+    dblp: /journals/tkde/tkde
+
+  - rank: A
+    abbr: VLDBJ
+    name: "The VLDB Journal"
+    url: /journals/vldb
+    dblp: /journals/vldb/vldb
+
+  - rank: B
+    abbr: TKDD
+    name: "ACM Transactions on Knowledge Discovery from Data"
+    url: /journals/tkdd
+    dblp: /journals/tkdd/tkdd
+
+  - rank: B
+    abbr: TWEB
+    name: "ACM Transactions on the Web"
+    url: /journals/tweb
+    dblp: /journals/tweb
+
+  - rank: B
+    abbr: AEI
+    name: "Advanced Engineering Informatics"
+    url: /journals/aei
+    dblp: /journals/aei/aei
+
+  - rank: B
+    abbr: DKE
+    name: "Data and Knowledge Engineering"
+    url: /journals/dke
+    dblp: /journals/dke/dke
+
+  - rank: B
+    abbr: DMKD
+    name: "Data Mining and Knowledge Discovery"
+    url: /journals/datamine
+    dblp: /journals/datamine/datamine
+
+  - rank: B
+    abbr: EJIS
+    name: "European Journal of Information Systems"
+    url: /journals/ejis
+    dblp: /journals/ejis/ejis
+
+  - rank: B
+    abbr: 
+    name: "GeoInformatica"
+    url: /journals/geoinformatica
+    dblp: /journals/geoinformatica/geoinformatica
+
+  - rank: B
+    abbr: IPM
+    name: "Information Processing and Management"
+    url: /journals/ipm
+    dblp: /journals/ipm/ipm
+
+  - rank: B
+    abbr: 
+    name: "Information Sciences"
+    url: /journals/isci
+    dblp: /journals/isci/isci
+
+  - rank: B
+    abbr: IS
+    name: "Information Systems"
+    url: /journals/is
+    dblp: /journals/is/is
+
+  - rank: B
+    abbr: JASIST
+    name: "Journal of the American Society for Information Science and Technology"
+    url: /journals/jasis
+    dblp: /journals/jasis/jasis
+
+  - rank: B
+    abbr: JWS
+    name: "Journal of Web Semantics"
+    url: /journals/ws
+    dblp: /journals/ws/ws
+
+  - rank: B
+    abbr: KAIS
+    name: "Knowledge and Information Systems"
+    url: /journals/kais
+    dblp: /journals/kais/kais
+
+  - rank: C
+    abbr: DPD
+    name: "Distributed and Parallel Databases"
+    url: /journals/dpd
+    dblp: /journals/dpd/dpd
+
+  - rank: C
+    abbr: I&M
+    name: "Information and Management"
+    url: /journals/iam
+    dblp: /journals/iam/iam
+
+  - rank: C
+    abbr: IPL
+    name: "Information Processing Letters"
+    url: /journals/ipl
+    dblp: /journals/ipl/ipl
+
+  - rank: C
+    abbr: IR
+    name: "Information Retrieval Journal"
+    url: /journals/ir
+    dblp: /journals/ir/ir
+
+  - rank: C
+    abbr: IJCIS
+    name: "International Journal of Cooperative Information Systems"
+    url: /journals/ijcis
+    dblp: /journals/ijcis/ijcis
+
+  - rank: C
+    abbr: IJGIS
+    name: "International Journal of Geographical Information Science"
+    url: /journals/gis
+    dblp: /journals/gis/gis
+
+  - rank: C
+    abbr: IJIS
+    name: "International Journal of Intelligent Systems"
+    url: /journals/ijis
+    dblp: /journals/ijis/ijis
+
+  - rank: C
+    abbr: IJKM
+    name: "International Journal of Knowledge Management"
+    url: /journals/ijkm
+    dblp: /journals/ijkm/ijkm
+
+  - rank: C
+    abbr: IJSWIS
+    name: "International Journal on Semantic Web and Information Systems"
+    url: /journals/ijswis
+    dblp: /journals/ijswis/ijswis
+
+  - rank: C
+    abbr: JCIS
+    name: "Journal of Computer Information Systems"
+    url: /journals/jcis
+    dblp: /journals/jcis/jcis
+
+  - rank: C
+    abbr: JDM
+    name: "Journal of Database Management"
+    url: /journals/jdm
+    dblp: /journals/jdm/jdm
+
+  - rank: C
+    abbr: JIIS
+    name: "Journal of Intelligent Information Systems"
+    url: /journals/jiis
+    dblp: /journals/jiis/jiis
+
+  - rank: C
+    abbr: JSIS
+    name: "Journal of Strategic Information Systems"
+    url: /journals/jsis
+    dblp: /journals/jsis/jsis
+
+  - rank: C
+    abbr: DSE
+    name: "Data Science and Engineering"
+    url: /journals/dase
+    dblp: /journals/dase/dase
+
+  - rank: A
+    abbr: SIGMOD
+    name: "ACM Conference on Management of Data"
+    url: /conf/sigmod
+    dblp: /conf/sigmod/sigmod
+
+  - rank: A
+    abbr: SIGKDD
+    name: "ACM Knowledge Discovery and Data Mining"
+    url: /conf/kdd
+    dblp: /conf/kdd/kdd
+
+  - rank: A
+    abbr: ICDE
+    name: "IEEE International Conference on Data Engineering"
+    url: /conf/icde
+    dblp: /conf/icde/icde
+
+  - rank: A
+    abbr: SIGIR
+    name: "International Conference on Research on Development in Information Retrieval"
+    url: /conf/sigir
+    dblp: /conf/sigir/sigir
+
+  - rank: A
+    abbr: VLDB
+    name: "International Conference on Very Large Data Bases"
+    url: /conf/vldb
+    dblp: /conf/vldb/vldb
+
+  - rank: A
+    abbr: VLDB
+    name: "International Conference on Very Large Data Bases"
+    url: /journals/pvldb
+    dblp: /journals/pvldb/pvldb
+
+  - rank: B
+    abbr: CIKM
+    name: "ACM International Conference on Information and Knowledge Management"
+    url: /conf/cikm
+    dblp: /conf/cikm/cikm
+
+  - rank: B
+    abbr: WSDM
+    name: "ACM International Conference on Web Search and Data Mining"
+    url: /conf/wsdm
+    dblp: /conf/wsdm/wsdm
+
+  - rank: B
+    abbr: PODS
+    name: "ACM Symposium on Principles of Database Systems"
+    url: /conf/pods
+    dblp: /conf/pods/pods
+
+  - rank: B
+    abbr: DASFAA
+    name: "Database Systems for Advanced Applications"
+    url: /conf/dasfaa
+    dblp: /conf/dasfaa/dasfaa
+
+  - rank: B
+    abbr: ECML-PKDD
+    name: "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases"
+    url: /conf/ecml
+    dblp: /conf/pkdd/pkdd
+
+  - rank: B
+    abbr: ISWC
+    name: "IEEE International Semantic Web Conference"
+    url: /conf/semweb
+    dblp: /conf/semweb/iswc
+
+  - rank: B
+    abbr: ICDM
+    name: "International Conference on Data Mining"
+    url: /conf/icdm
+    dblp: /conf/icdm/icdm
+
+  - rank: B
+    abbr: ICDT
+    name: "International Conference on Database Theory"
+    url: /conf/icdt
+    dblp: /conf/icdt/icdt
+
+  - rank: B
+    abbr: EDBT
+    name: "International Conference on Extending DB Technology"
+    url: /conf/edbt
+    dblp: /conf/edbt/edbt
+
+  - rank: B
+    abbr: CIDR
+    name: "International Conference on Innovative Data Systems Research"
+    url: /conf/cidr
+    dblp: /conf/cidr/cidr
+
+  - rank: B
+    abbr: SDM
+    name: "SIAM International Conference on Data Mining"
+    url: /conf/sdm
+    dblp: /conf/sdm/sdm
+
+  - rank: B
+    abbr: RecSys
+    name: "ACM Conference on Recommender Systems"
+    url: /conf/recsys
+    dblp: /conf/recsys/recsys
+
+  - rank: C
+    abbr: APWeb
+    name: "Asia Pacific Web Conference"
+    url: /conf/apweb
+    dblp: /conf/apweb/apweb
+
+  - rank: C
+    abbr: DEXA
+    name: "Database and Expert System Applications"
+    url: /conf/dexa
+    dblp: /conf/dexa/dexa
+
+  - rank: C
+    abbr: ECIR
+    name: "European Conference on IR Research"
+    url: /conf/ecir
+    dblp: /conf/ecir/ecir
+
+  - rank: C
+    abbr: ESWC
+    name: "Extended Semantic Web Conference"
+    url: /conf/esws
+    dblp: /conf/esws/eswc
+
+  - rank: C
+    abbr: WebDB
+    name: "International ACM Workshop on Web and Databases"
+    url: /conf/webdb
+    dblp: /conf/webdb/webdb
+
+  - rank: C
+    abbr: ER
+    name: "International Conference on Conceptual Modeling"
+    url: /conf/er
+    dblp: /conf/er/er
+
+  - rank: C
+    abbr: MDM
+    name: "International Conference on Mobile Data Management"
+    url: /conf/mdm
+    dblp: /conf/mdm/mdm
+
+  - rank: C
+    abbr: SSDBM
+    name: "International Conference on Scientific and Statistical DB Management"
+    url: /conf/ssdbm
+    dblp: /conf/ssdbm/ssdbm
+
+  - rank: C
+    abbr: WAIM
+    name: "International Conference on Web Age Information Management"
+    url: /conf/waim
+    dblp: /conf/waim/waim
+
+  - rank: C
+    abbr: SSTD
+    name: "International Symposium on Spatial and Temporal Databases"
+    url: /conf/ssd
+    dblp: /conf/ssd/sstd
+
+  - rank: C
+    abbr: PAKDD
+    name: "Pacific-Asia Conference on Knowledge Discovery and Data Mining"
+    url: /conf/pakdd
+    dblp: /conf/pakdd/pakdd
+
+  - rank: C
+    abbr: WISE
+    name: "Web Information Systems Engineering"
+    url: /conf/wise
+    dblp: /conf/wise/wise
+
+  - rank: C
+    abbr: ADMA
+    name: "The International Conference on Advanced Data Mining and Applications"
+    url: /conf/adma
+    dblp: /conf/adma/adma
+
+  - rank: A
+    abbr: TIT
+    name: "IEEE Transactions on Information Theory"
+    url: /journals/tit
+    dblp: /journals/tit/tit
+
+  - rank: A
+    abbr: IANDC
+    name: "Information and Computation"
+    url: /journals/iandc
+    dblp: /journals/iandc/iandc
+
+  - rank: A
+    abbr: SICOMP
+    name: "SIAM Journal on Computing"
+    url: /journals/siamcomp
+    dblp: /journals/siamcomp/siamcomp
+
+  - rank: B
+    abbr: TALG
+    name: "ACM Transactions on Algorithms"
+    url: /journals/talg
+    dblp: /journals/talg/talg
+
+  - rank: B
+    abbr: TOCL
+    name: "ACM Transactions on Computational Logic"
+    url: /journals/tocl
+    dblp: /journals/tocl/tocl
+
+  - rank: B
+    abbr: TOMS
+    name: "ACM Transactions on Mathematical Software"
+    url: /journals/toms
+    dblp: /journals/toms/toms
+
+  - rank: B
+    abbr: Algorithmica
+    name: "Algorithmica"
+    url: /journals/algorithmica
+    dblp: /journals/algorithmica/algorithmica
+
+  - rank: B
+    abbr: CC
+    name: "Computational complexity"
+    url: /journals/cc
+    dblp: /journals/cc/cc
+
+  - rank: B
+    abbr: FAC
+    name: "Formal Aspects of Computing"
+    url: /journals/fac
+    dblp: /journals/fac/fac
+
+  - rank: B
+    abbr: FMSD
+    name: "Formal Methods in System Design"
+    url: /journals/fmsd
+    dblp: /journals/fmsd/fmsd
+
+  - rank: B
+    abbr: INFORMS
+    name: "INFORMS Journal on Computing"
+    url: /journals/informs
+    dblp: /journals/informs/informs
+
+  - rank: B
+    abbr: JCSS
+    name: "Journal of Computer and System Sciences"
+    url: /journals/jcss
+    dblp: /journals/jcss/jcss
+
+  - rank: B
+    abbr: JGO
+    name: "Journal of Global Optimization"
+    url: /journals/jgo
+    dblp: /journals/jgo/jgo
+
+  - rank: B
+    abbr: JSC
+    name: "Journal of Symbolic Computation"
+    url: /journals/jsc
+    dblp: /journals/jsc/jsc
+
+  - rank: B
+    abbr: MSCS
+    name: "Mathematical Structures in Computer Science"
+    url: /journals/mscs
+    dblp: /journals/mscs/mscs
+
+  - rank: B
+    abbr: TCS
+    name: "Theoretical Computer Science"
+    url: /journals/tcs
+    dblp: /journals/tcs/tcs
+
+  - rank: C
+    abbr: ACTA
+    name: "Acta Informatica"
+    url: /journals/acta
+    dblp: /journals/acta/acta
+
+  - rank: C
+    abbr: APAL
+    name: "Annals of Pure and Applied Logic"
+    url: /journals/apal
+    dblp: /journals/apal/apal
+
+  - rank: C
+    abbr: DAM
+    name: "Discrete Applied Mathematics"
+    url: /journals/dam
+    dblp: /journals/dam/dam
+
+  - rank: C
+    abbr: FUIN
+    name: "Fundamenta Informaticae"
+    url: /journals/fuin
+    dblp: /journals/fuin/fuin
+
+  - rank: C
+    abbr: LISP
+    name: "Higher-Order and Symbolic Computation"
+    url: /journals/lisp
+    dblp: /journals/lisp/lisp
+
+  - rank: C
+    abbr: IPL
+    name: "Information Processing Letters"
+    url: /journals/ipl
+    dblp: /journals/ipl/ipl
+
+  - rank: C
+    abbr: JCOMPLEXITY
+    name: "Journal of Complexity"
+    url: /journals/jc
+    dblp: /journals/jc/jc
+
+  - rank: C
+    abbr: LOGCOM
+    name: "Journal of Logic and Computation"
+    url: /journals/logcom
+    dblp: /journals/logcom/logcom
+
+  - rank: C
+    abbr: JSL
+    name: "Journal of Symbolic Logic"
+    url: /journals/jsyml
+    dblp: /journals/jsyml/jsyml
+
+  - rank: C
+    abbr: LMCS
+    name: "Logical Methods in Computer Science"
+    url: /journals/lmcs
+    dblp: /journals/lmcs/lmcs
+
+  - rank: C
+    abbr: SIDMA
+    name: "SIAM Journal on Discrete Mathematics"
+    url: /journals/siamdm
+    dblp: /journals/siamdm/siamdm
+
+  - rank: C
+    abbr: 
+    name: "Theory of Computing Systems"
+    url: /journals/mst
+    dblp: /journals/mst/mst
+
+  - rank: A
+    abbr: STOC
+    name: "ACM Symposium on Theory of Computing"
+    url: /conf/stoc
+    dblp: /conf/stoc/stoc
+
+  - rank: A
+    abbr: SODA
+    name: "ACM-SIAM Symposium on Discrete Algorithms"
+    url: /conf/soda
+    dblp: /conf/soda/soda
+
+  - rank: A
+    abbr: CAV
+    name: "Computer Aided Verification"
+    url: /conf/cav
+    dblp: /conf/cav/cav
+
+  - rank: A
+    abbr: FOCS
+    name: "IEEE Annual Symposium on Foundations of Computer Science"
+    url: /conf/focs
+    dblp: /conf/focs/focs
+
+  - rank: A
+    abbr: LICS
+    name: "IEEE Symposium on Logic in Computer Science"
+    url: /conf/lics
+    dblp: /conf/lics/lics
+
+  - rank: B
+    abbr: SoCG
+    name: "ACM Symposium on Computational Geometry"
+    url: /conf/compgeom
+    dblp: /conf/compgeom/compgeom
+
+  - rank: B
+    abbr: ESA
+    name: "European Symposium on Algorithms"
+    url: /conf/esa
+    dblp: /conf/esa/esa
+
+  - rank: B
+    abbr: CCC
+    name: "IEEE Conference on Computational Complexity"
+    url: /conf/coco
+    dblp: /conf/coco/coco
+
+  - rank: B
+    abbr: ICALP
+    name: "International Colloquium on Automata, Languages and Programming"
+    url: /conf/icalp
+    dblp: /conf/icalp/icalp
+
+  - rank: B
+    abbr: CADE/IJCAR
+    name: "International Conference on Automated Deduction/International Joint Conference on Automated Reasoning"
+    url: /conf/cade
+    dblp: /conf/cade/ijcar
+
+  - rank: B
+    abbr: CADE/IJCAR
+    name: "International Conference on Automated Deduction/International Joint Conference on Automated Reasoning"
+    url: /conf/cade
+    dblp: /conf/cade/cade
+
+  - rank: B
+    abbr: CONCUR
+    name: "International Conference on Concurrency Theory"
+    url: /conf/concur
+    dblp: /conf/concur/concur
+
+  - rank: B
+    abbr: HSCC
+    name: "International Conference on Hybrid Systems: Computation and Control"
+    url: /conf/hybrid
+    dblp: /conf/hybrid/hscc
+
+  - rank: B
+    abbr: SAT
+    name: "Theory and Applications of Satisfiability Testing"
+    url: /conf/sat
+    dblp: /conf/sat/sat
+
+  - rank: B
+    abbr: COCOON
+    name: "International Computing and Combinatorics Conference"
+    url: /conf/cocoon
+    dblp: /conf/cocoon/cocoon
+
+  - rank: C
+    abbr: CSL
+    name: "Computer Science Logic"
+    url: /conf/csl
+    dblp: /conf/csl/csl
+
+  - rank: C
+    abbr: FMCAD
+    name: "Formal Method in Computer-Aided Design"
+    url: /conf/fmcad
+    dblp: /conf/fmcad/fmcad
+
+  - rank: C
+    abbr: FSTTCS
+    name: "Foundations of Software Technology and Theoretical Computer Science"
+    url: /conf/fsttcs
+    dblp: /conf/fsttcs/fsttcs
+
+  - rank: C
+    abbr: DSAA
+    name: "IEEE International Conference on Data Science and Advanced Analytics"
+    url: /conf/dsaa
+    dblp: /conf/dsaa/dsaa
+
+  - rank: C
+    abbr: ICTAC
+    name: "International Colloquium on Theoretical Aspects of Computing"
+    url: /conf/ictac
+    dblp: /conf/ictac/ictac
+
+  - rank: C
+    abbr: IPCO
+    name: "International Conference on Integer Programming and Combinatorial Optimization"
+    url: /conf/ipco
+    dblp: /conf/ipco/ipco
+
+  - rank: C
+    abbr: RTA
+    name: "International Conference on Rewriting Techniques and Applications"
+    url: /conf/rta
+    dblp: /conf/rta/rta
+
+  - rank: C
+    abbr: ISAAC
+    name: "International Symposium on Algorithms and Computation"
+    url: /conf/isaac
+    dblp: /conf/isaac/isaac
+
+  - rank: C
+    abbr: MFCS
+    name: "Mathematical Foundations of Computer Science"
+    url: /conf/mfcs
+    dblp: /conf/mfcs/mfcs
+
+  - rank: C
+    abbr: STACS
+    name: "Symposium on Theoretical Aspects of Computer Science"
+    url: /conf/stacs
+    dblp: /conf/stacs/stacs
+
+  - rank: C
+    abbr: SETTA
+    name: "International Symposium on Dependable Software Engineering: Theories, Tools, and Applications"
+    url: /conf/setta
+    dblp: /conf/setta/setta
+
+  - rank: A
+    abbr: TOG
+    name: "ACM Transactions on Graphics"
+    url: /journals/tog
+    dblp: /journals/tog/tog
+
+  - rank: A
+    abbr: TIP
+    name: "IEEE Transactions on Image Processing"
+    url: /journals/tip
+    dblp: /journals/tip/tip
+
+  - rank: A
+    abbr: TVCG
+    name: "IEEE Transactions on Visualization and Computer Graphics"
+    url: /journals/tvcg
+    dblp: /journals/tvcg/tvcg
+
+  - rank: B
+    abbr: TOMCCAP
+    name: "ACM Transactions on Multimedia Computing,Communications and Application"
+    url: /journals/tomccap
+    dblp: /journals/tomccap/tomccap
+
+  - rank: B
+    abbr: CAGD
+    name: "Computer Aided Geometric Design"
+    url: /journals/cagd
+    dblp: /journals/cagd/cagd
+
+  - rank: B
+    abbr: CGF
+    name: "Computer Graphics Forum"
+    url: /journals/cgf
+    dblp: /journals/cgf/cgf
+
+  - rank: B
+    abbr: CAD
+    name: "Computer-Aided Design"
+    url: /journals/cad
+    dblp: /journals/cad/cad
+
+  - rank: B
+    abbr: GM
+    name: "Graphical Models"
+    url: /journals/cvgip
+    dblp: /journals/cvgip/cvgip
+
+  - rank: B
+    abbr: TCSVT
+    name: "IEEE Transactions on Circuits and Systems for Video Technology"
+    url: /journals/tcsv
+    dblp: /journals/tcsv/tcsv
+
+  - rank: B
+    abbr: TMM
+    name: "IEEE Transactions on Multimedia"
+    url: /journals/tmm
+    dblp: /journals/tmm/tmm
+
+  - rank: B
+    abbr: SIIMS
+    name: "SIAM Journal on Imaging Sciences"
+    url: /journals/siamis
+    dblp: /journals/siamis/siamis
+
+  - rank: B
+    abbr: Speech Com
+    name: "Speech Communication"
+    url: /journals/speech
+    dblp: /journals/speech/speech
+
+  - rank: C
+    abbr: CGTA
+    name: "Computational Geometry: Theory and Applications"
+    url: /journals/comgeo
+    dblp: /journals/comgeo/comgeo
+
+  - rank: C
+    abbr: CAVW
+    name: "Computer Animation and Virtual Worlds"
+    url: /journals/jvca
+    dblp: /journals/jvca/jvca
+
+  - rank: C
+    abbr: C&G
+    name: "Computers & Graphics"
+    url: /journals/cg
+    dblp: /journals/cg/cg
+
+  - rank: C
+    abbr: DCG
+    name: "Discrete & Computational Geometry"
+    url: /journals/dcg
+    dblp: /journals/dcg/dcg
+
+  - rank: C
+    abbr: SPL
+    name: "IEEE Signal Processing Letters"
+    url: /journals/spl
+    dblp: /journals/spl/spl
+
+  - rank: C
+    abbr: IET-IPR
+    name: "IET Image Processing"
+    url: /journals/iet-ipr
+    dblp: /journals/iet-ipr/iet-ipr
+
+  - rank: C
+    abbr: JVCIR
+    name: "Journal of Visual Communication and Image Representation"
+    url: /journals/jvcir
+    dblp: /journals/jvcir/jvcir
+
+  - rank: C
+    abbr: MS
+    name: "Multimedia Systems"
+    url: /journals/mms
+    dblp: /journals/mms/mms
+
+  - rank: C
+    abbr: MTA
+    name: "Multimedia Tools and Applications"
+    url: /journals/mta
+    dblp: /journals/mta/mta
+
+  - rank: C
+    abbr: 
+    name: "Signal Processing"
+    url: /journals/sigpro
+    dblp: /journals/sigpro/sigpro
+
+  - rank: C
+    abbr: SPIC
+    name: "Signal Processing: Image Communication"
+    url: /journals/spic
+    dblp: /journals/spic/spic
+
+  - rank: C
+    abbr: TVC
+    name: "The Visual Computer"
+    url: /journals/vc
+    dblp: /journals/vc/vc
+
+  - rank: C
+    abbr: CVMJ
+    name: "Computational Visual Media"
+    url: /journals/cvm
+    dblp: /journals/cvm/cvm
+
+  - rank: A
+    abbr: ACM MM
+    name: "ACM International Conference on Multimedia"
+    url: /conf/mm
+    dblp: /conf/mm/mm
+
+  - rank: A
+    abbr: SIGGRAPH
+    name: "ACM SIGGRAPH Annual Conference"
+    url: /conf/siggraph
+    dblp: /conf/siggraph/siggraph
+
+  - rank: A
+    abbr: VR
+    name: "IEEE Virtual Reality"
+    url: /conf/vr
+    dblp: /conf/vr/vr
+
+  - rank: A
+    abbr: IEEE VIS
+    name: "IEEE Visualization Conference"
+    url: /conf/visualization
+    dblp: /conf/visualization/visualization
+
+  - rank: B
+    abbr: ICMR
+    name: "ACM SIGMM International Conference on Multimedia Retrieval"
+    url: /conf/mir
+    dblp: /conf/mir/icmr
+
+  - rank: B
+    abbr: ICMR
+    name: "ACM SIGMM International Conference on Multimedia Retrieval"
+    url: /conf/mir
+    dblp: /conf/mir/mir
+
+  - rank: B
+    abbr: SI3D
+    name: "ACM Symposium on Interactive 3D Graphics"
+    url: /conf/si3d
+    dblp: /conf/si3d/si3d
+
+  - rank: B
+    abbr: SCA
+    name: "ACM/Eurographics Symposium on Computer Animation"
+    url: /conf/sca
+    dblp: /conf/sca/sca
+
+  - rank: B
+    abbr: DCC
+    name: "Data Compression Conference"
+    url: /conf/dcc
+    dblp: /conf/dcc/dcc
+
+  - rank: B
+    abbr: EG
+    name: "Eurographics"
+    url: /conf/eurographics
+    dblp: /journals/cgf/cgf
+
+  - rank: B
+    abbr: EuroVis
+    name: "Eurographics Conference on Visualization"
+    url: /conf/vissym
+    dblp: /journals/cgf/cgf
+
+  - rank: B
+    abbr: SGP
+    name: "Eurographics Symposium on Geometry Processing"
+    url: /conf/sgp
+    dblp: /conf/sgp/sgp
+
+  - rank: B
+    abbr: EGSR
+    name: "Eurographics Symposium on Rendering"
+    url: /conf/rt
+    dblp: /conf/rt/dl
+
+  - rank: B
+    abbr: EGSR
+    name: "Eurographics Symposium on Rendering"
+    url: /conf/rt
+    dblp: /conf/rt/eii
+
+  - rank: B
+    abbr: ICASSP
+    name: "IEEE International Conference on Acoustics,Speech and SP"
+    url: /conf/icassp
+    dblp: /conf/icassp/icassp
+
+  - rank: B
+    abbr: ICME
+    name: "IEEE International Conference on Multimedia& Expo"
+    url: /conf/icmcs
+    dblp: /conf/icmcs/icme
+
+  - rank: B
+    abbr: ISMAR
+    name: "International Symposium on Mixed and Augmented Reality"
+    url: /conf/ismar
+    dblp: /conf/ismar/ismar
+
+  - rank: B
+    abbr: PG
+    name: "Pacific Graphics: The Pacific Conference on Computer Graphics and Applications"
+    url: /conf/pg
+    dblp: /conf/pg/pg
+
+  - rank: B
+    abbr: SPM
+    name: "Symposium on Solid and Physical Modeling"
+    url: /conf/sma
+    dblp: /conf/sma/spm
+
+  - rank: B
+    abbr: SPM
+    name: "Symposium on Solid and Physical Modeling"
+    url: /conf/sma
+    dblp: /conf/sma/sma
+
+  - rank: B
+    abbr: MICCAI
+    name: "International Conference on Medical Image Computing and Computer-Assisted Intervention"
+    url: /conf/miccai
+    dblp: /conf/miccai/miccai
+
+  - rank: C
+    abbr: 
+    name: "ACM Symposium on Virtual Reality Software and Technology"
+    url: /conf/vrst
+    dblp: /conf/vrst/vrst
+
+  - rank: C
+    abbr: CASA
+    name: "Computer Animation and Social Agents"
+    url: /conf/ca
+    dblp: /conf/ca/casa
+
+  - rank: C
+    abbr: CGI
+    name: "Computer Graphics International"
+    url: /conf/cgi
+    dblp: /conf/cgi/cgi
+
+  - rank: C
+    abbr: INTERSPEECH
+    name: "Conference of the International SpeechCommunication Association"
+    url: /conf/interspeech
+    dblp: /conf/interspeech/interspeech
+
+  - rank: C
+    abbr: GMP
+    name: "Geometric Modeling and Processing"
+    url: /conf/gmp
+    dblp: /conf/gmp/gmp
+
+  - rank: C
+    abbr: PacificVis
+    name: "IEEE Pacific Visualization Symposium"
+    url: /conf/apvis
+    dblp: /conf/apvis/pacificvis
+
+  - rank: C
+    abbr: PacificVis
+    name: "IEEE Pacific Visualization Symposium"
+    url: /conf/apvis
+    dblp: /conf/apvis/apvis
+
+  - rank: C
+    abbr: 3DV
+    name: "International Conference on 3D Vision"
+    url: /conf/3dim
+    dblp: /conf/3dim/3dim
+
+  - rank: C
+    abbr: CAD/Graphics
+    name: "International Conference on Computer-Aided Design and Computer Graphics"
+    url: /conf/cadgraphics
+    dblp: /conf/cadgraphics/cadgraphics
+
+  - rank: C
+    abbr: ICIP
+    name: "International Conference on Image Processing"
+    url: /conf/icip
+    dblp: /conf/icip/icip
+
+  - rank: C
+    abbr: MMM
+    name: "International Conference on Multimedia Modeling"
+    url: /conf/mmm
+    dblp: /conf/mmm/mmm
+
+  - rank: C
+    abbr: PCM
+    name: "Pacific-Rim Conference on Multimedia"
+    url: /conf/pcm
+    dblp: /conf/pcm/pcm
+
+  - rank: C
+    abbr: SMI
+    name: "Shape Modeling International"
+    url: /conf/smi
+    dblp: /conf/smi/smi
+
+  - rank: C
+    abbr: CVM
+    name: "Computational Visual Media"
+    url: /conf/cvm
+    dblp: /conf/cvm/cvm
+
+  - rank: C
+    abbr: PRCV
+    name: "Chinese Conference on Pattern Recognition and Computer Vision"
+    url: /conf/prcv
+    dblp: /conf/prcv/prcv
+
+  - rank: A
+    abbr: AI
+    name: "Artificial Intelligence"
+    url: /journals/ai
+    dblp: /journals/ai/ai
+
+  - rank: A
+    abbr: TPAMI
+    name: "IEEE Trans on Pattern Analysis and Machine Intelligence"
+    url: /journals/pami
+    dblp: /journals/pami/pami
+
+  - rank: A
+    abbr: IJCV
+    name: "International Journal of Computer Vision"
+    url: /journals/ijcv
+    dblp: /journals/ijcv/ijcv
+
+  - rank: A
+    abbr: JMLR
+    name: "Journal of Machine Learning Research"
+    url: /journals/jmlr
+    dblp: /journals/jmlr/jmlr
+
+  - rank: B
+    abbr: TAP
+    name: "ACM Transactions on Applied Perception"
+    url: /journals/tap
+    dblp: /journals/tap/tap
+
+  - rank: B
+    abbr: TSLP
+    name: "ACM Transactions on Speech and Language Processing"
+    url: /journals/tslp
+    dblp: /journals/tslp/tslp
+
+  - rank: B
+    abbr: AAMAS
+    name: "Autonomous Agents and Multi-Agent Systems"
+    url: /journals/aamas
+    dblp: /journals/aamas/aamas
+
+  - rank: B
+    abbr: 
+    name: "Computational Linguistics"
+    url: /journals/coling
+    dblp: /journals/coling/coling
+
+  - rank: B
+    abbr: CVIU
+    name: "Computer Vision and Image Understanding"
+    url: /journals/cviu
+    dblp: /journals/cviu/cviu
+
+  - rank: B
+    abbr: DKE
+    name: "Data and Knowledge Engineering"
+    url: /journals/dke
+    dblp: /journals/dke/dke
+
+  - rank: B
+    abbr: 
+    name: "Evolutionary Computation"
+    url: /journals/ec
+    dblp: /journals/ec/ec
+
+  - rank: B
+    abbr: TAC
+    name: "IEEE Transactions on Affective Computing"
+    url: /journals/taffco
+    dblp: /journals/taffco/taffco
+
+  - rank: B
+    abbr: TASLP
+    name: "IEEE Transactions on Audio, Speech, and Language Processing"
+    url: /journals/taslp
+    dblp: /journals/taslp/taslp
+
+  - rank: B
+    abbr: 
+    name: "IEEE Transactions on Cybernetics"
+    url: /journals/tcyb
+    dblp: /journals/tcyb/tcyb
+
+  - rank: B
+    abbr: 
+    name: "IEEE Transactions on Cybernetics"
+    url: /journals/tcyb
+    dblp: /journals/tsmc/tsmcb
+
+  - rank: B
+    abbr: TEC
+    name: "IEEE Transactions on Evolutionary Computation"
+    url: /journals/tec
+    dblp: /journals/tec/tec
+
+  - rank: B
+    abbr: TFS
+    name: "IEEE Transactions on Fuzzy Systems"
+    url: /journals/tfs
+    dblp: /journals/tfs/tfs
+
+  - rank: B
+    abbr: TNNLS
+    name: "IEEE Transactions on Neural Networks and learning systems"
+    url: /journals/tnn
+    dblp: /journals/tnn/tnn
+
+  - rank: B
+    abbr: IJAR
+    name: "International Journal of Approximate Reasoning"
+    url: /journals/ijar
+    dblp: /journals/ijar/ijar
+
+  - rank: B
+    abbr: JAIR
+    name: "Journal of Artificial Intelligence Research"
+    url: /journals/jair
+    dblp: /journals/jair/jair
+
+  - rank: B
+    abbr: 
+    name: "Journal of Automated Reasoning"
+    url: /journals/jar
+    dblp: /journals/jar/jar
+
+  - rank: B
+    abbr: 
+    name: "Machine Learning"
+    url: /journals/ml
+    dblp: /journals/ml/ml
+
+  - rank: B
+    abbr: 
+    name: "Neural Computation"
+    url: /journals/neco
+    dblp: /journals/neco/neco
+
+  - rank: B
+    abbr: 
+    name: "Neural Networks"
+    url: /journals/nn
+    dblp: /journals/nn/nn
+
+  - rank: B
+    abbr: 
+    name: "Pattern Recognition"
+    url: /journals/pr
+    dblp: /journals/pr/pr
+
+  - rank: B
+    abbr: TACL
+    name: "Transactions of the Association for Computational Linguistics"
+    url: /journals/tacl
+    dblp: /journals/tacl/tacl
+
+  - rank: C
+    abbr: TALLIP
+    name: "ACM Transactions on Asian and Low-Resource Language Information Processing"
+    url: /journals/talip
+    dblp: /journals/talip/talip
+
+  - rank: C
+    abbr: 
+    name: "Applied Intelligence"
+    url: /journals/apin
+    dblp: /journals/apin/apin
+
+  - rank: C
+    abbr: AIM
+    name: "Artificial Intelligence in Medicine"
+    url: /journals/artmed
+    dblp: /journals/artmed/artmed
+
+  - rank: C
+    abbr: 
+    name: "Artificial Life"
+    url: /journals/alife
+    dblp: /journals/alife/alife
+
+  - rank: C
+    abbr: 
+    name: "Computational Intelligence"
+    url: /journals/ci
+    dblp: /journals/ci/ci
+
+  - rank: C
+    abbr: 
+    name: "Computer Speech and Language"
+    url: /journals/csl
+    dblp: /journals/csl/csl
+
+  - rank: C
+    abbr: 
+    name: "Connection Science"
+    url: /journals/connection
+    dblp: /journals/connection/connection
+
+  - rank: C
+    abbr: DSS
+    name: "Decision Support Systems"
+    url: /journals/dss
+    dblp: /journals/dss/dss
+
+  - rank: C
+    abbr: EAAI
+    name: "Engineering Applications of Artificial Intelligence"
+    url: /journals/eaai
+    dblp: /journals/eaai/eaai
+
+  - rank: C
+    abbr: 
+    name: "Expert Systems"
+    url: /journals/es
+    dblp: /journals/es/es
+
+  - rank: C
+    abbr: ESWA
+    name: "Expert Systems with Applications"
+    url: /journals/eswa
+    dblp: /journals/eswa/eswa
+
+  - rank: C
+    abbr: 
+    name: "Fuzzy Sets and Systems"
+    url: /journals/fss
+    dblp: /journals/fss/fss
+
+  - rank: C
+    abbr: TG
+    name: "IEEE Transactions on Games"
+    url: /journals/tciaig
+    dblp: /journals/tciaig/tciaig
+
+  - rank: C
+    abbr: IET-CVI
+    name: "IET Computer Vision"
+    url: /journals/iet-cvi
+    dblp: /journals/iet-cvi/iet-cvi
+
+  - rank: C
+    abbr: 
+    name: "IET Signal Processing"
+    url: /journals/iet-spr
+    dblp: /journals/iet-spr/iet-spr
+
+  - rank: C
+    abbr: IVC
+    name: "Image and Vision Computing"
+    url: /journals/ivc
+    dblp: /journals/ivc/ivc
+
+  - rank: C
+    abbr: IDA
+    name: "Intelligent Data Analysis"
+    url: /journals/ida
+    dblp: /journals/ida/ida
+
+  - rank: C
+    abbr: IJCIA
+    name: "International Journal of Computational Intelligence and Applications"
+    url: /journals/ijcia
+    dblp: /journals/ijcia/ijcia
+
+  - rank: C
+    abbr: IJIS
+    name: "International Journal of Intelligent Systems"
+    url: /journals/ijis
+    dblp: /journals/ijis/ijis
+
+  - rank: C
+    abbr: IJNS
+    name: "International Journal of Neural Systems"
+    url: /journals/ijns
+    dblp: /journals/ijns/ijns
+
+  - rank: C
+    abbr: IJPRAI
+    name: "International Journal of Pattern Recognition and Artificial Intelligence"
+    url: /journals/ijprai
+    dblp: /journals/ijprai/ijprai
+
+  - rank: C
+    abbr: IJUFKS
+    name: "International Journal of Uncertainty, Fuzziness and Knowledge-Based System"
+    url: /journals/ijufks
+    dblp: /journals/ijufks/ijufks
+
+  - rank: C
+    abbr: IJDAR
+    name: "International Journal on Document Analysis and Recognition"
+    url: /journals/ijdar
+    dblp: /journals/ijdar/ijdar
+
+  - rank: C
+    abbr: JETAI
+    name: "Journal of Experimental and Theoretical Artificial Intelligence"
+    url: /journals/jetai
+    dblp: /journals/jetai/jetai
+
+  - rank: C
+    abbr: KBS
+    name: "Knowledge-Based Systems"
+    url: /journals/kbs
+    dblp: /journals/kbs/kbs
+
+  - rank: C
+    abbr: 
+    name: "Machine Translation"
+    url: /journals/mt
+    dblp: /journals/mt/mt
+
+  - rank: C
+    abbr: 
+    name: "Machine Vision and Applications"
+    url: /journals/mva
+    dblp: /journals/mva/mva
+
+  - rank: C
+    abbr: 
+    name: "Natural Computing"
+    url: /journals/nc
+    dblp: /journals/nc/nc
+
+  - rank: C
+    abbr: NLE
+    name: "Natural Language Engineering"
+    url: /journals/nle
+    dblp: /journals/nle/nle
+
+  - rank: C
+    abbr: NCA
+    name: "Neural Computing & Applications"
+    url: /journals/nca
+    dblp: /journals/nca/nca
+
+  - rank: C
+    abbr: NPL
+    name: "Neural Processing Letters"
+    url: /journals/npl
+    dblp: /journals/npl/npl
+
+  - rank: C
+    abbr: 
+    name: "Neurocomputing"
+    url: /journals/ijon
+    dblp: /journals/ijon/ijon
+
+  - rank: C
+    abbr: PAA
+    name: "Pattern Analysis and Applications"
+    url: /journals/paa
+    dblp: /journals/paa/paa
+
+  - rank: C
+    abbr: PRL
+    name: "Pattern Recognition Letters"
+    url: /journals/prl
+    dblp: /journals/prl/prl
+
+  - rank: C
+    abbr: 
+    name: "Soft Computing"
+    url: /journals/soco
+    dblp: /journals/soco/soco
+
+  - rank: C
+    abbr: WI
+    name: "Web Intelligence"
+    url: /journals/wias
+    dblp: /journals/wias/wias
+
+  - rank: C
+    abbr: TIIS
+    name: "ACM Transactions on Interactive Intelligent Systems"
+    url: /journals/tiis
+    dblp: /journals/tiis/tiis
+
+  - rank: A
+    abbr: AAAI
+    name: "AAAI Conference on Artificial Intelligence"
+    url: /conf/aaai
+    dblp: /conf/aaai/aaai
+
+  - rank: A
+    abbr: NeurIPS
+    name: "Annual Conference on Neural Information Processing Systems"
+    url: /conf/nips
+    dblp: /conf/nips/neurips
+
+  - rank: A
+    abbr: NeurIPS
+    name: "Annual Conference on Neural Information Processing Systems"
+    url: /conf/nips
+    dblp: /conf/nips/nips
+
+  - rank: A
+    abbr: ACL
+    name: "Annual Meeting of the Association for Computational Linguistics"
+    url: /conf/acl
+    dblp: /conf/acl/acl
+
+  - rank: A
+    abbr: CVPR
+    name: "IEEE Conference on Computer Vision and Pattern Recognition"
+    url: /conf/cvpr
+    dblp: /conf/cvpr/cvpr
+
+  - rank: A
+    abbr: ICCV
+    name: "International Conference on Computer Vision"
+    url: /conf/iccv
+    dblp: /conf/iccv/iccv
+
+  - rank: A
+    abbr: ICML
+    name: "International Conference on Machine Learning"
+    url: /conf/icml
+    dblp: /conf/icml/icml
+
+  - rank: A
+    abbr: IJCAI
+    name: "International Joint Conference on Artificial Intelligence"
+    url: /conf/ijcai
+    dblp: /conf/ijcai/ijcai
+
+  - rank: B
+    abbr: COLT
+    name: "Annual Conference on Computational Learning Theory"
+    url: /conf/colt
+    dblp: /conf/colt/colt
+
+  - rank: B
+    abbr: EMNLP
+    name: "Conference on Empirical Methods in Natural Language Processing"
+    url: /conf/emnlp
+    dblp: /conf/emnlp/emnlp
+
+  - rank: B
+    abbr: ECAI
+    name: "European Conference on Artificial Intelligence"
+    url: /conf/ecai
+    dblp: /conf/ecai/ecai
+
+  - rank: B
+    abbr: ECCV
+    name: "European Conference on Computer Vision"
+    url: /conf/eccv
+    dblp: /conf/eccv/eccv
+
+  - rank: B
+    abbr: ICRA
+    name: "IEEE International Conference on Robotics and Automation"
+    url: /conf/icra
+    dblp: /conf/icra/icra
+
+  - rank: B
+    abbr: ICAPS
+    name: "International Conference on Automated Planning and Scheduling"
+    url: /conf/aips
+    dblp: /conf/aips/icaps
+
+  - rank: B
+    abbr: ICCBR
+    name: "International Conference on Case-Based Reasoning and Development"
+    url: /conf/iccbr
+    dblp: /conf/iccbr/iccbr
+
+  - rank: B
+    abbr: COLING
+    name: "International Conference on Computational Linguistics"
+    url: /conf/coling
+    dblp: /conf/coling/coling
+
+  - rank: B
+    abbr: KR
+    name: "International Conference on Principles of Knowledge Representation and Reasoning"
+    url: /conf/kr
+    dblp: /conf/kr/kr
+
+  - rank: B
+    abbr: UAI
+    name: "International Conference on Uncertainty in Artificial Intelligence"
+    url: /conf/uai
+    dblp: /conf/uai/uai
+
+  - rank: B
+    abbr: AAMAS
+    name: "International Joint Conference on Autonomous Agents and Multi-agent Systems"
+    url: /conf/atal
+    dblp: /conf/atal/aamas
+
+  - rank: B
+    abbr: PPSN
+    name: "Parallel Problem Solving from Nature"
+    url: /conf/ppsn
+    dblp: /conf/ppsn/ppsn
+
+  - rank: B
+    abbr: NAACL
+    name: "The Annual Conference of the North American Chapter of the Association for Computational Linguistics"
+    url: /conf/naacl
+    dblp: /conf/naacl/naacl
+
+  - rank: C
+    abbr: AISTATS
+    name: "Artificial Intelligence and Statistics"
+    url: /conf/aistats
+    dblp: /conf/aistats/aistats
+
+  - rank: C
+    abbr: ACCV
+    name: "Asian Conference on Computer Vision"
+    url: /conf/accv
+    dblp: /conf/accv/accv
+
+  - rank: C
+    abbr: ACML
+    name: "Asian Conference on Machine Learning"
+    url: /conf/acml
+    dblp: /conf/acml/acml
+
+  - rank: C
+    abbr: BMVC
+    name: "British Machine Vision Conference"
+    url: /conf/bmvc
+    dblp: /conf/bmvc/bmvc
+
+  - rank: C
+    abbr: NLPCC
+    name: "CCF International Conference on Natural Language Processing and Chinese Computing"
+    url: /conf/nlpcc
+    dblp: /conf/nlpcc/nlpcc
+
+  - rank: C
+    abbr: CoNLL
+    name: "Conference on Computational Natural Language Learning"
+    url: /conf/conll
+    dblp: /conf/conll/conll
+
+  - rank: C
+    abbr: GECCO
+    name: "Genetic and Evolutionary Computation Conference"
+    url: /conf/gecco
+    dblp: /conf/gecco/gecco
+
+  - rank: C
+    abbr: ICTAI
+    name: "IEEE International Conference on Tools with Artificial Intelligence"
+    url: /conf/ictai
+    dblp: /conf/ictai/ictai
+
+  - rank: C
+    abbr: IROS
+    name: "IEEERSJ International Conference on Intelligent Robots and Systems"
+    url: /conf/iros
+    dblp: /conf/iros/iros
+
+  - rank: C
+    abbr: ALT
+    name: "International Conference on Algorithmic Learning Theory"
+    url: /conf/alt
+    dblp: /conf/alt/alt
+
+  - rank: C
+    abbr: ICANN
+    name: "International Conference on Artificial Neural Networks"
+    url: /conf/icann
+    dblp: /conf/icann/icann
+
+  - rank: C
+    abbr: FG
+    name: "International Conference on Automatic Face and Gesture Recognition"
+    url: /conf/fgr
+    dblp: /conf/fgr/fg
+
+  - rank: C
+    abbr: ICDAR
+    name: "International Conference on Document Analysis and Recognition"
+    url: /conf/icdar
+    dblp: /conf/icdar/icdar
+
+  - rank: C
+    abbr: ILP
+    name: "International Conference on Inductive Logic Programming"
+    url: /conf/ilp
+    dblp: /conf/ilp/ilp
+
+  - rank: C
+    abbr: KSEM
+    name: "International conference on Knowledge Science,Engineering and Management"
+    url: /conf/ksem
+    dblp: /conf/ksem/ksem
+
+  - rank: C
+    abbr: ICONIP
+    name: "International Conference on Neural Information Processing"
+    url: /conf/iconip
+    dblp: /conf/iconip/iconip
+
+  - rank: C
+    abbr: ICPR
+    name: "International Conference on Pattern Recognition"
+    url: /conf/icpr
+    dblp: /conf/icpr/icpr
+
+  - rank: C
+    abbr: ICB
+    name: "International Joint Conference on Biometrics"
+    url: /conf/icb
+    dblp: /conf/icb/icb
+
+  - rank: C
+    abbr: IJCNN
+    name: "International Joint Conference on Neural Networks"
+    url: /conf/ijcnn
+    dblp: /conf/ijcnn/ijcnn
+
+  - rank: C
+    abbr: PRICAI
+    name: "Pacific Rim International Conference on Artificial Intelligence"
+    url: /conf/pricai
+    dblp: /conf/pricai/pricai
+
+  - rank: A
+    abbr: TOCHI
+    name: "ACM Transactions on Computer-Human Interaction"
+    url: /journals/tochi
+    dblp: /journals/tochi/tochi
+
+  - rank: A
+    abbr: IJHCS
+    name: "International Journal of Human Computer Studies"
+    url: /journals/ijmms
+    dblp: /journals/ijmms/ijmms
+
+  - rank: B
+    abbr: CSCW
+    name: "Computer Supported Cooperative Work"
+    url: /journals/cscw
+    dblp: /journals/cscw/cscw
+
+  - rank: B
+    abbr: HCI
+    name: "Human Computer Interaction"
+    url: /journals/hhci
+    dblp: /journals/hhci/hhci
+
+  - rank: B
+    abbr: 
+    name: "IEEE Transactions on Human-Machine Systems"
+    url: /journals/thms
+    dblp: /journals/thms/thms
+
+  - rank: B
+    abbr: 
+    name: "IEEE Transactions on Human-Machine Systems"
+    url: /journals/thms
+    dblp: /journals/tsmc/tsmcc
+
+  - rank: B
+    abbr: IWC
+    name: "Interacting with Computers"
+    url: /journals/iwc
+    dblp: /journals/iwc/iwc
+
+  - rank: B
+    abbr: IJHCI
+    name: "International Journal of Human-Computer Interaction"
+    url: /journals/ijhci
+    dblp: /journals/ijhci/ijhci
+
+  - rank: B
+    abbr: UMUAI
+    name: "User Modeling and User-Adapted Interaction"
+    url: /journals/umuai
+    dblp: /journals/umuai/umuai
+
+  - rank: B
+    abbr: TSMC
+    name: "IEEE Transactions on Systems, Man, and Cybernetics: Systems"
+    url: /journals/tsmc
+    dblp: /journals/tsmc/tsmc
+
+  - rank: C
+    abbr: BIT
+    name: "Behaviour & Information Technology"
+    url: /journals/behaviourIT
+    dblp: /journals/behaviourIT/behaviourIT
+
+  - rank: C
+    abbr: PUC
+    name: "Personal and Ubiquitous Computing"
+    url: /journals/puc
+    dblp: /journals/puc/puc
+
+  - rank: C
+    abbr: PMC
+    name: "Pervasive and Mobile Computing"
+    url: /journals/percom
+    dblp: /journals/percom/percom
+
+  - rank: C
+    abbr: PACMHCI
+    name: "Proceedings of the ACM on Human-Computer Interaction"
+    url: /journals/pacmhci
+    dblp: /journals/pacmhci/pacmhci
+
+  - rank: A
+    abbr: CSCW
+    name: "ACM Conference on Computer Supported Cooperative Work and Social Computing"
+    url: /conf/cscw
+    dblp: /conf/cscw/cscw
+
+  - rank: A
+    abbr: CHI
+    name: "ACM Conference on Human Factors in Computing Systems"
+    url: /conf/chi
+    dblp: /conf/chi/chi
+
+  - rank: A
+    abbr: UbiComp
+    name: "ACM International Conference on Ubiquitous Computing"
+    url: /conf/huc
+    dblp: /conf/huc/ubicomp
+
+  - rank: A
+    abbr: IMWUT
+    name: "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies"
+    url: /journals/imwut
+    dblp: /journals/imwut/imwut
+
+  - rank: A
+    abbr: UIST
+    name: "ACM Symposium on User Interface Software and Technology"
+    url: /conf/uist
+    dblp: /conf/uist/uist
+
+  - rank: B
+    abbr: GROUP
+    name: "ACM Conference on Supporting Group Work"
+    url: /conf/group
+    dblp: /conf/group/group
+
+  - rank: B
+    abbr: IUI
+    name: "ACM International Conference on Intelligent User Interfaces"
+    url: /conf/iui
+    dblp: /conf/iui/iui
+
+  - rank: B
+    abbr: ITS
+    name: "ACM International Conference on Interactive Tabletops and Surfaces"
+    url: /conf/tabletop
+    dblp: /conf/tabletop/iss
+
+  - rank: B
+    abbr: ITS
+    name: "ACM International Conference on Interactive Tabletops and Surfaces"
+    url: /conf/tabletop
+    dblp: /conf/tabletop/its
+
+  - rank: B
+    abbr: ECSCW
+    name: "European Conference on Computer Supported Cooperative Work"
+    url: /conf/ecscw
+    dblp: /conf/ecscw/ecscw
+
+  - rank: B
+    abbr: PERCOM
+    name: "IEEE International Conference on Pervasive Computing and Communications"
+    url: /conf/percom
+    dblp: /conf/percom/percom
+
+  - rank: B
+    abbr: MobileHCI
+    name: "International Conference on Human Computer Interaction with Mobile Devices and Services"
+    url: /conf/mhci
+    dblp: /conf/mhci/mhci
+
+  - rank: B
+    abbr: ICWSM
+    name: "The International AAAI Conference on Web and Social Media"
+    url: /conf/icwsm
+    dblp: /conf/icwsm/icwsm
+
+  - rank: C
+    abbr: DIS
+    name: "ACM Conference on Designing Interactive Systems"
+    url: /conf/ACMdis
+    dblp: /conf/ACMdis/ACMdis
+
+  - rank: C
+    abbr: ICMI
+    name: "ACM International Conference on Multimodal Interaction"
+    url: /conf/icmi
+    dblp: /conf/icmi/icmi
+
+  - rank: C
+    abbr: ASSETS
+    name: "ACM SIGACCESS Conference on Computers and Accessibility"
+    url: /conf/assets
+    dblp: /conf/assets/assets
+
+  - rank: C
+    abbr: GI
+    name: "Graphics Interface conference"
+    url: /conf/graphicsinterface
+    dblp: /conf/graphicsinterface/graphicsinterface
+
+  - rank: C
+    abbr: UIC
+    name: "IEEE International Conference on Ubiquitous Intelligence and Computing"
+    url: /conf/uic
+    dblp: /conf/uic/uic
+
+  - rank: C
+    abbr: 
+    name: "IEEE World Haptics Conference"
+    url: /conf/haptics
+    dblp: /conf/haptics/haptics
+
+  - rank: C
+    abbr: INTERACT
+    name: "IFIP TC13 Conference on Human-Computer Interaction"
+    url: /conf/interact
+    dblp: /conf/interact/interact
+
+  - rank: C
+    abbr: IDC
+    name: "Interaction Design and Children"
+    url: /conf/acmidc
+    dblp: /conf/acmidc/idc
+
+  - rank: C
+    abbr: CollaborateCom
+    name: "International Conference on Collaborative Computing: Networking, Applications and Worksharing"
+    url: /conf/colcom
+    dblp: /conf/colcom/colcom
+
+  - rank: C
+    abbr: CSCWD
+    name: "International Conference on Computer Supported Cooperative Work in Design"
+    url: /conf/cscwd
+    dblp: /conf/cscwd/cscwd
+
+  - rank: C
+    abbr: CoopIS
+    name: "International Conference on Cooperative Information Systems"
+    url: /conf/coopis
+    dblp: /conf/coopis/coopis
+
+  - rank: C
+    abbr: MobiQuitous
+    name: "International Conference on Mobile and Ubiquitous Systems: Computing,Networking and Services"
+    url: /conf/mobiquitous
+    dblp: /conf/mobiquitous/mobiquitous
+
+  - rank: C
+    abbr: AVI
+    name: "International Working Conference on Advanced Visual Interfaces"
+    url: /conf/avi
+    dblp: /conf/avi/avi
+
+  - rank: A
+    abbr: JACM
+    name: "Journal of the ACM"
+    url: /journals/jacm
+    dblp: /journals/jacm/jacm
+
+  - rank: A
+    abbr: Proc. IEEE
+    name: "Proceedings of the IEEE"
+    url: /journals/pieee
+    dblp: /journals/pieee/pieee
+
+  - rank: A
+    abbr: SCIS
+    name: "Science China Information Sciences"
+    url: /journals/chinaf
+    dblp: /journals/chinaf/chinaf
+
+  - rank: B
+    abbr: 
+    name: "Bioinformatics"
+    url: /journals/bioinformatics
+    dblp: /journals/bioinformatics/bioinformatics
+
+  - rank: B
+    abbr: 
+    name: "Briefings in Bioinformatics"
+    url: /journals/bib
+    dblp: /journals/bib/bib
+
+  - rank: B
+    abbr: TASAE
+    name: "IEEE Transactions on Automation Science and Engineering"
+    url: /journals/tase
+    dblp: /journals/tase/tase
+
+  - rank: B
+    abbr: TGARS
+    name: "IEEE Transactions on Geoscience and Remote Sensing"
+    url: /journals/tgrs
+    dblp: /journals/tgrs/tgrs
+
+  - rank: B
+    abbr: TITS
+    name: "IEEE Transactions on Intelligent Transportation Systems"
+    url: /journals/tits
+    dblp: /journals/tits/tits
+
+  - rank: B
+    abbr: TMI
+    name: "IEEE Transactions on Medical Imaging"
+    url: /journals/tmi
+    dblp: /journals/tmi/tmi
+
+  - rank: B
+    abbr: TR
+    name: "IEEE Transactions on Robotics"
+    url: /journals/trob
+    dblp: /journals/trob/trob
+
+  - rank: B
+    abbr: TCBB
+    name: "IEEE-ACM Transactions on Computational Biology and Bioinformatics"
+    url: /journals/tcbb
+    dblp: /journals/tcbb/tcbb
+
+  - rank: B
+    abbr: JCST
+    name: "Journal of Computer Science and Technology"
+    url: /journals/jcst
+    dblp: /journals/jcst/jcst
+
+  - rank: B
+    abbr: JAMIA
+    name: "Journal of the American Medical Informatics Association"
+    url: /journals/jamia
+    dblp: /journals/jamia/jamia
+
+  - rank: B
+    abbr: 
+    name: "PLOS Computational Biology"
+    url: /journals/ploscb
+    dblp: /journals/ploscb/ploscb
+
+  - rank: B
+    abbr: 
+    name: "The Computer Journal"
+    url: /journals/cj
+    dblp: /journals/cj/cj
+
+  - rank: B
+    abbr: 
+    name: "World Wide Web Journal"
+    url: /journals/www
+    dblp: /journals/www/www
+
+  - rank: B
+    abbr: FCS
+    name: "Frontiers of Computer Science"
+    url: /journals/fcsc
+    dblp: /journals/fcsc/fcsc
+
+  - rank: C
+    abbr: 
+    name: "BMC Bioinformatics"
+    url: /journals/bmcbi
+    dblp: /journals/bmcbi/bmcbi
+
+  - rank: C
+    abbr: 
+    name: "Cybernetics and Systems"
+    url: /journals/cas
+    dblp: /journals/cas/cas
+
+  - rank: C
+    abbr: 
+    name: "IEEE Geoscience and Remote Sensing Letters"
+    url: /journals/lgrs
+    dblp: /journals/lgrs/lgrs
+
+  - rank: C
+    abbr: JBHI
+    name: "IEEE Journal of Biomedical and Health Informatics"
+    url: /journals/titb
+    dblp: /journals/titb/titb
+
+  - rank: C
+    abbr: TBD
+    name: "IEEE Transactions on Big Data"
+    url: /journals/tbd
+    dblp: /journals/tbd/tbd
+
+  - rank: C
+    abbr: JBI
+    name: "Journal of Biomedical Informatics"
+    url: /journals/jbi
+    dblp: /journals/jbi/jbi
+
+  - rank: C
+    abbr: 
+    name: "Medical Image Analysis"
+    url: /journals/mia
+    dblp: /journals/mia/mia
+
+  - rank: C
+    abbr: TII
+    name: "IEEE Transactions on Industrial Informatics"
+    url: /journals/tii
+    dblp: /journals/tii/tii
+
+  - rank: C
+    abbr: TCPS
+    name: "ACM Transactions on Cyber-Physical Systems"
+    url: /journals/tcps
+    dblp: /journals/tcps/tcps
+
+  - rank: C
+    abbr: TOCE
+    name: "ACM Transactions on Computing Education"
+    url: /journals/jeric
+    dblp: /journals/jeric/toce
+
+  - rank: C
+    abbr: TOCE
+    name: "ACM Transactions on Computing Education"
+    url: /journals/jeric
+    dblp: /journals/jeric/jeric
+
+  - rank: C
+    abbr: FITEE
+    name: "Frontiers of Information Technology & Electronic Engineering"
+    url: /journals/jzusc
+    dblp: /journals/jzusc/jzusc
+
+  - rank: C
+    abbr: TCSS
+    name: "IEEE Transaction on Computational Social Systems"
+    url: /journals/tcss
+    dblp: /journals/tcss/tcss
+
+  - rank: C
+    abbr: 
+    name: "IEEE Transactions on Reliability"
+    url: /journals/tr
+    dblp: /journals/tr/tr
+
+  - rank: A
+    abbr: WWW
+    name: "International World Wide Web Conferences"
+    url: /conf/www
+    dblp: /conf/www/www
+
+  - rank: A
+    abbr: RTSS
+    name: "Real-Time Systems Symposium"
+    url: /conf/rtss
+    dblp: /conf/rtss/rtss
+
+  - rank: A
+    abbr: WINE
+    name: "Conference on Web and Internet Economics"
+    url: /conf/wine
+    dblp: /conf/wine/wine
+
+  - rank: B
+    abbr: CogSci
+    name: "Cognitive Science Society Annual Conference"
+    url: /conf/cogsci
+    dblp: /conf/cogsci/cogsci
+
+  - rank: B
+    abbr: BIBM
+    name: "IEEE International Conference on Bioinformatics and Biomedicine"
+    url: /conf/bibm
+    dblp: /conf/bibm/bibm
+
+  - rank: B
+    abbr: EMSOFT
+    name: "International Conference on Embedded Software"
+    url: /conf/emsoft
+    dblp: /conf/emsoft/emsoft
+
+  - rank: B
+    abbr: ISMB
+    name: "International conference on Intelligent Systems for Molecular Biology"
+    url: /journals/bioinformatics
+    dblp: /journals/bioinformatics/bioinformatics
+
+  - rank: B
+    abbr: RECOMB
+    name: "International Conference on Research in Computational Molecular Biology"
+    url: /conf/recomb
+    dblp: /conf/recomb/recomb
+
+  - rank: C
+    abbr: AMIA
+    name: "American Medical Informatics Association Annual Symposium"
+    url: /conf/amia
+    dblp: /conf/amia/amia
+
+  - rank: C
+    abbr: APBC
+    name: "Asia Pacific Bioinformatics Conference"
+    url: /conf/apbc
+    dblp: /conf/apbc/apbc
+
+  - rank: C
+    abbr: 
+    name: "IEEE International Conference on Big Data"
+    url: /conf/bigdataconf
+    dblp: /conf/bigdataconf/bigdataconf
+
+  - rank: C
+    abbr: 
+    name: "IEEE International Conference on Cloud Computing"
+    url: /conf/IEEEcloud
+    dblp: /conf/IEEEcloud/IEEEcloud
+
+  - rank: C
+    abbr: SMC
+    name: "IEEE International Conference on Systems, Man, and Cybernetics"
+    url: /conf/smc
+    dblp: /conf/smc/smc
+
+  - rank: C
+    abbr: COSIT
+    name: "International Conference on Spatial Information Theory"
+    url: /conf/cosit
+    dblp: /conf/cosit/cosit
+
+  - rank: C
+    abbr: ISBRA
+    name: "International Symposium on Bioinformatics Research and Applications"
+    url: /conf/isbra
+    dblp: /conf/isbra/isbra
+
+  - rank: C
+    abbr: SAGT
+    name: "International Symposium on Algorithmic Game Theory"
+    url: /conf/sagt
+    dblp: /conf/sagt/sagt
+
+  - rank: C
+    abbr: SIGSPATIAL
+    name: "ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems"
+    url: /conf/gis
+    dblp: /conf/gis/gis
+
+  - rank: C
+    abbr: ICIC
+    name: "International Conference on Intelligent Computing"
+    url: /conf/icic
+    dblp: /conf/icic/icic
+
+  - rank: E
+    abbr: ICLR
+    name: "International Conference on Learning Representations"
+    url: /conf/iclr
+    dblp: /conf/iclr/iclr
+
+  - rank: P
+    abbr: 
+    name: "arXiv"
+    url: /journals/corr
+    dblp: /journals/corr/corr
+

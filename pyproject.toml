@@ -1,0 +1,10 @@
+[project]
+name = "scholai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "dict2xml>=1.7.6",
+    "mcp[cli]>=1.9.4",
+]

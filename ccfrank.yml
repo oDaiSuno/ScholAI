@@ -1,7 +1,3 @@
-# CCF推荐学术期刊和会议列表
-# 格式: rank abbr fullname url1 url2
-# Copyright (c) 2019-2023 WenyanLiu (https://github.com/WenyanLiu/CCFrank4dblp)
-
 venues:
   - rank: A
     abbr: TOCS

@@ -12,3 +12,4 @@ data/
 .openmcp
 .python-version
 doc
+papers.json

@@ -10,43 +10,101 @@ from datetime import datetime
 import os
 import fitz  # PyMuPDF
 from pathlib import Path
+from bs4 import BeautifulSoup
+
 
 mcp = FastMCP("ScholAI MCP Server", version="0.0.0")
 
 proxies = None
 
 
-async def extract_entries_data(xml_response):
-    # 解析XML
-    root = ET.fromstring(xml_response)
+async def extract_papers_from_html(html_content, venue=True):
+    """
+    从HTML内容中提取论文信息
+    """
+    soup = BeautifulSoup(html_content, "html.parser")
+    papers = []
 
-    # 定义命名空间
-    namespaces = {"atom": "http://www.w3.org/2005/Atom"}
+    # 找到所有论文div
+    paper_divs = soup.find_all("div", class_="panel paper")
 
-    # 提取所有entry元素
-    entries = root.findall(".//atom:entry", namespaces)
+    for paper_div in paper_divs:
+        paper_info = {}
 
-    extracted_data = []
-    for entry in entries:
-        # 提取id和title
-        entry_id = entry.find("atom:id", namespaces)
-        entry_title = entry.find("atom:title", namespaces)
-        entry_summary = entry.find("atom:summary", namespaces)
-        entry_updated = entry.find("atom:updated", namespaces)
-        entry_author = entry.find("atom:author", namespaces).find(
-            "atom:name", namespaces
-        )
+        # 提取标题
+        title_link = paper_div.find("a", class_="title-link")
+        if title_link:
+            paper_info["title"] = title_link.get_text(strip=True)
+        pdf_url = paper_div.find('a', class_='title-pdf')
+        if pdf_url:
+            onclick_attr = pdf_url.get('onclick', '')
+            # 方法1: 处理新格式 - 直接URL (如arxiv)
+            # 匹配: togglePdf('id', 'https://arxiv.org/pdf/xxx', this)
+            direct_url_match = re.search(r"togglePdf\('[^']*',\s*'([^']+)',", onclick_attr)
+            if direct_url_match:
+                pdf_url = direct_url_match.group(1)
+                # 检查是否是直接的PDF链接
+                if pdf_url.startswith('http') and not pdf_url.startswith('/pdf?url='):
+                    paper_info['pdf_url'] = pdf_url
+                else:
+                    # 方法2: 处理旧格式 - 包装的URL
+                    # 从 /pdf?url=actual_url 中提取 actual_url
+                    actual_url_match = re.search(r'url=([^&]+)', pdf_url)
+                    if actual_url_match:
+                        paper_info['pdf_url'] = actual_url_match.group(1)
 
-        data = {
-            "cool_paper_id": entry_id.text if entry_id is not None else None,
-            "title": entry_title.text if entry_title is not None else None,
-            "author": entry_author.text if entry_author is not None else None,
-            "summary": entry_summary.text if entry_summary is not None else None,
-            "updated": entry_updated.text if entry_updated is not None else None,
-        }
-        extracted_data.append(data)
+        # 提取第一作者
+        authors_p = paper_div.find("p", id=lambda x: x and x.startswith("authors-"))
+        if authors_p:
+            # 查找所有作者链接
+            author_links = authors_p.find_all("a", class_="author")
+            if author_links:
+                # 只保留第一作者
+                first_author = author_links[0].get_text(strip=True)
+                paper_info["first_author"] = first_author
+            else:
+                # 如果没有找到author类的链接，尝试从文本中提取
+                authors_text = authors_p.get_text(strip=True)
+                # 移除"Authors:"前缀，然后按逗号分割取第一个
+                if "Authors:" in authors_text:
+                    authors_clean = authors_text.replace("Authors:", "").strip()
+                    first_author = authors_clean.split(",")[0].strip()
+                    paper_info["first_author"] = first_author
 
-    return extracted_data
+        # 提取摘要
+        summary_p = paper_div.find("p", class_="summary")
+        if summary_p:
+            paper_info["abstract"] = summary_p.get_text(strip=True)
+
+        # 提取出版年份
+        publication_time = None
+
+        if not venue:
+            date = paper_div.find("p", class_="metainfo date")
+            if date:
+                paper_info["publication_time"] = date.get_text(strip=True).split("Publish: ")[-1]
+
+        else:
+            subjects_p = paper_div.find("p", class_="metainfo subjects")
+            if subjects_p:
+                subject_links = subjects_p.find_all("a")
+                subjects = [subject.get_text(strip=True) for subject in subject_links]
+                paper_info["subjects"] = subjects
+
+                for subject in subjects:
+                    year_match = re.search(r"\.(\d{4})", subject)
+                    if year_match:
+                        publication_time = int(year_match.group(1))
+                        break
+
+            if publication_time:
+                paper_info["publication_time"] = publication_time
+
+        papers.append(paper_info)
+
+    return papers
+
+
 
 
 async def load_ccf_ranking() -> dict:
@@ -71,6 +129,14 @@ async def load_ccf_ranking() -> dict:
 
     return ccf_rank_map
 
+@mcp.tool(name="get_ccf_rank", description="Get the CCF rank of a venue")
+async def get_ccf_rank(venue: str) -> str:
+    ccf_rank_map = await load_ccf_ranking()
+    if venue.lower() in ccf_rank_map:
+        return ccf_rank_map[venue.lower()]
+    else:
+        return "N/A"
+
 
 @mcp.tool(
     name="search_on_arxiv",
@@ -92,9 +158,8 @@ async def load_ccf_ranking() -> dict:
     Parameters:
     - query: Single search term or phrase
     - num_results: Max papers to return (default: 100)
-    - need_pdf_link: Include PDF download links (default: True)
     - need_datetime_sort: Sort by submission date, newest first (default: False)
-    - need_publication_info: Include detailed submission metadata (default: False)
+
     
     Returns: List of preprints with titles, authors, arXiv categories, and optional PDF links.
     """,
@@ -102,32 +167,23 @@ async def load_ccf_ranking() -> dict:
 async def search_on_arxiv(
     query: str,
     num_results: int = 100,
-    need_pdf_link: bool = True,
     need_datetime_sort: bool = False,
-    need_publication_info: bool = False,
 ) -> list:
     response_xml = await httpx.AsyncClient().get(
-        f"https://papers.cool/arxiv/search/feed?query={query}"
+        f"https://papers.cool/arxiv/search?query={query}&show=1000"
     )
     response_xml.raise_for_status()
-    response_json = await extract_entries_data(response_xml.text)
+    html_content = response_xml.text
+    papers = await extract_papers_from_html(html_content, venue=False)
+
     if need_datetime_sort:
-        response_json = sorted(
-            response_json,
-            key=lambda x: datetime.fromisoformat(x["updated"]),
-            reverse=True,
+        papers = sorted(
+            papers, key=lambda x: x.get("publication_time", 0), reverse=True
         )
-    response_json = response_json[:num_results]
 
-    for item in response_json:
-        if need_publication_info:
-            item["publication_info"] = await get_publication_info(
-                item["title"], item["author"]
-            )
-        if need_pdf_link:
-            item["pdf_link"] = await get_paper_pdf_link(item["cool_paper_id"])
+    papers = papers[:num_results]
 
-    return response_json
+    return papers
 
 
 @mcp.tool(
@@ -150,150 +206,40 @@ async def search_on_arxiv(
     Parameters:
     - query: Single search term or phrase
     - num_results: Max papers to return (default: 100)
-    - need_pdf_link: Include PDF download links (default: True)
-    - need_datetime_sort: Sort by publication date, newest first (default: False)
-    - need_publication_info: Include detailed publication metadata (default: False)
+    - need_datetime_sort: Sort by publication date, newest first (default: True)
+
     
     Returns: List of papers with titles, authors, venue details, and optional PDF links.
     """,
 )
 async def search_on_venue(
-    query: str,
-    num_results: int = 100,
-    need_pdf_link: bool = True,
-    need_datetime_sort: bool = False,
-    need_publication_info: bool = False,
+    query: str, num_results: int = 100, need_datetime_sort: bool = True
 ) -> list:
     response_xml = await httpx.AsyncClient().get(
-        f"https://papers.cool/venue/search/feed?query={query}"
+        f"https://papers.cool/venue/search?query={query}&show=1000"
     )
     response_xml.raise_for_status()
-    response_json = await extract_entries_data(response_xml.text)
+    html_content = response_xml.text
+    papers = await extract_papers_from_html(html_content, venue=True)
+
     if need_datetime_sort:
-        response_json = sorted(
-            response_json,
-            key=lambda x: datetime.fromisoformat(x["updated"]),
-            reverse=True,
+        papers = sorted(
+            papers, key=lambda x: x.get("publication_time", 0), reverse=True
         )
-    response_json = response_json[:num_results]
 
-    for item in response_json:
-        if need_publication_info:
-            item["publication_info"] = await get_publication_info(
-                item["title"], item["author"]
-            )
-        if need_pdf_link:
-            item["pdf_link"] = await get_paper_pdf_link(item["cool_paper_id"])
+    papers = papers[:num_results]
 
-    return response_json
-
-
-@mcp.tool(
-    name="get_publication_info", description="Get publication information for a paper"
-)
-async def get_publication_info(title: str, author: str = None) -> dict:
-    ccf_rank_map = await load_ccf_ranking()
-    query = title
-    if author:
-        query += f" author:{author}"
-    api_url = f"https://dblp.org/search/publ/api"
-    params = {
-        "q": query,
-        "format": "json",
-    }
-    headers = {"User-Agent": UserAgent().random}
-
-    async with httpx.AsyncClient(proxy=proxies["http"] if proxies else None) as client:
-        response = await client.get(api_url, params=params, headers=headers)
-        response.raise_for_status()
-        data = response.json()
-
-    publication_info = {"venue": "arxiv", "ccf_rank": "None"}  # 默认无 CCF 评级
-    if "result" not in data or "hits" not in data["result"]:
-        return publication_info
-
-    hits = data["result"]["hits"]
-    if hits.get("@total", "0") == "0" or "hit" not in hits:
-        return publication_info
-
-    # 获取第一个匹配结果
-    hit = hits["hit"][0]
-    if "info" not in hit:
-        return publication_info
-
-    info = hit["info"]
-
-    # 基本出版信息
-    if "venue" in info:
-        venue = info["venue"]
-        publication_info["venue"] = venue
-
-        # 查找 CCF 评级
-        venue_lower = venue.lower()
-        if venue_lower in ccf_rank_map:
-            publication_info["ccf_rank"] = ccf_rank_map[venue_lower]
-
-        # 如果在 info 中有更详细的会议/期刊信息，也尝试匹配 CCF 评级
-        if "journal" in info:
-            journal = info["journal"]
-            journal_lower = journal.lower()
-            if journal_lower in ccf_rank_map:
-                publication_info["ccf_rank"] = ccf_rank_map[journal_lower]
-                publication_info["journal"] = journal
-
-        if "booktitle" in info:
-            booktitle = info["booktitle"]
-            booktitle_lower = booktitle.lower()
-            if booktitle_lower in ccf_rank_map:
-                publication_info["ccf_rank"] = ccf_rank_map[booktitle_lower]
-                publication_info["booktitle"] = booktitle
-
-    if "year" in info:
-        publication_info["year"] = info["year"]
-
-    return publication_info
-
-
-def extract_pdf_link(html_content):
-    patterns = [
-        r'/pdf\?url=([^"\'&\s)]+)',  # 方法1: /pdf?url=
-        r"togglePdf\([^,]+,\s*['\"]([^'\"]+)['\"]",  # 方法2: onclick参数
-        r'https://arxiv\.org/pdf/[^"\'&\s)]+',  # 方法3: 直接ArXiv链接
-        r'https://openreview\.net/pdf\?id=[^"\'&\s)]+',  # 方法4: 直接OpenReview链接
-        r'https://[^"\'&\s)]+\.pdf(?:\?[^"\'&\s)]*)?',  # 方法5: 通用PDF链接
-    ]
-
-    for i, pattern in enumerate(patterns):
-        match = re.search(pattern, html_content)
-        if match:
-            # 前两个模式需要取第一个捕获组，后面的取整个匹配
-            return match.group(1) if i < 2 else match.group()
-
-    return None
-
-
-@mcp.tool(
-    name="get_paper_pdf_link",
-    description="Get of the paper, not the cool paper link!",
-)
-async def get_paper_pdf_link(cool_paper_id: str) -> str:
-    api_url = cool_paper_id
-    async with httpx.AsyncClient() as client:
-        response = await client.get(api_url)
-        response.raise_for_status()
-        html_content = response.text
-        pdf_link = extract_pdf_link(html_content)
-        return pdf_link
+    return papers
 
 
 def format_filename(title: str) -> str:
     return re.sub(r'[<>:"/\\|?*]', "_", title.strip())[:100] + ".pdf"
 
 
-@mcp.tool(name="download_paper_pdf", description="Download paper pdf")
-async def download_paper_pdf(title: str, pdf_link: str) -> str:
+@mcp.tool(name="download_paper_pdf", description="Download pdf file of paper from the pdf_url")
+async def download_paper_pdf(title: str, pdf_url: str) -> str:
     async with httpx.AsyncClient() as client:
-        response = await client.get(pdf_link)
+        response = await client.get(pdf_url)
         response.raise_for_status()
         content = response.content
 
@@ -406,14 +352,23 @@ def extract_academic_query(
     return json.dumps(result, indent=2)
 
 
-@mcp.tool(name="list_downloaded_papers", description="When you need to read a paper, first List all paths of downloaded papers")
+@mcp.tool(
+    name="list_downloaded_papers",
+    description="When you need to read a paper, first List all paths of downloaded papers",
+)
 async def list_downloaded_papers() -> list[str]:
     return [file for file in Path("./data").iterdir() if file.suffix == ".pdf"]
 
 
 @mcp.tool(name="extract_pdf_text", description="Extract text from a PDF file")
 async def extract_pdf_text(pdf_path: str) -> str:
-
+    
+    if not Path(pdf_path).exists():
+        pdf_path = Path("./data") / pdf_path
+        if not pdf_path.exists():
+            return "PDF file not found"
+        pdf_path = pdf_path.as_posix()
+    
     pdf_document = fitz.open(pdf_path)
 
     full_text = ""

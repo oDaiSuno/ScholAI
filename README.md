@@ -1,6 +1,6 @@
 # 🎓 ScholAI
 
-**基于模型上下文协议的智能学术研究助手**
+**基于MCP的智能学术研究助手**
 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 [![MCP](https://img.shields.io/badge/MCP-1.9.4+-green.svg)](https://modelcontextprotocol.io)
@@ -159,7 +159,8 @@ ScholAI/
 
 ---
 
-**用 🌟 为学术研究社区构建**
+**用 🌟 为本项目助力**
 
+[![Star History Chart](https://api.star-history.com/svg?repos=oDaiSuno/ScholAI&type=Date)](https://www.star-history.com/#oDaiSuno/ScholAI&Date)
 
 

@@ -3,12 +3,8 @@ import httpx
 import xml.etree.ElementTree as ET
 import json
 import yaml
-from fake_useragent import UserAgent
 import re
-from urllib.parse import unquote
-from datetime import datetime
-import os
-import fitz  # PyMuPDF
+import fitz
 from pathlib import Path
 from bs4 import BeautifulSoup
 
@@ -22,120 +18,137 @@ async def extract_papers_from_html(html_content, venue=True):
     """
     从HTML内容中提取论文信息
     """
-    soup = BeautifulSoup(html_content, "html.parser")
-    papers = []
+    try:
+        if not html_content or not html_content.strip():
+            return []
 
-    # 找到所有论文div
-    paper_divs = soup.find_all("div", class_="panel paper")
+        soup = BeautifulSoup(html_content, "html.parser")
+        papers = []
 
-    for paper_div in paper_divs:
-        paper_info = {}
+        # 找到所有论文div
+        paper_divs = soup.find_all("div", class_="panel paper")
 
-        # 提取标题
-        title_link = paper_div.find("a", class_="title-link")
-        if title_link:
-            paper_info["title"] = title_link.get_text(strip=True)
-        pdf_url = paper_div.find('a', class_='title-pdf')
-        if pdf_url:
-            onclick_attr = pdf_url.get('onclick', '')
-            # 方法1: 处理新格式 - 直接URL (如arxiv)
-            # 匹配: togglePdf('id', 'https://arxiv.org/pdf/xxx', this)
-            direct_url_match = re.search(r"togglePdf\('[^']*',\s*'([^']+)',", onclick_attr)
-            if direct_url_match:
-                pdf_url = direct_url_match.group(1)
-                # 检查是否是直接的PDF链接
-                if pdf_url.startswith('http') and not pdf_url.startswith('/pdf?url='):
-                    paper_info['pdf_url'] = pdf_url
-                else:
-                    # 方法2: 处理旧格式 - 包装的URL
-                    # 从 /pdf?url=actual_url 中提取 actual_url
-                    actual_url_match = re.search(r'url=([^&]+)', pdf_url)
-                    if actual_url_match:
-                        paper_info['pdf_url'] = actual_url_match.group(1)
+        for paper_div in paper_divs:
+            paper_info = {}
 
-        # 提取第一作者
-        authors_p = paper_div.find("p", id=lambda x: x and x.startswith("authors-"))
-        if authors_p:
-            # 查找所有作者链接
-            author_links = authors_p.find_all("a", class_="author")
-            if author_links:
-                # 只保留第一作者
-                first_author = author_links[0].get_text(strip=True)
-                paper_info["first_author"] = first_author
-            else:
-                # 如果没有找到author类的链接，尝试从文本中提取
-                authors_text = authors_p.get_text(strip=True)
-                # 移除"Authors:"前缀，然后按逗号分割取第一个
-                if "Authors:" in authors_text:
-                    authors_clean = authors_text.replace("Authors:", "").strip()
-                    first_author = authors_clean.split(",")[0].strip()
+            # 提取标题
+            title_link = paper_div.find("a", class_="title-link")
+            if title_link:
+                paper_info["title"] = title_link.get_text(strip=True)
+            pdf_url = paper_div.find("a", class_="title-pdf")
+            if pdf_url:
+                onclick_attr = pdf_url.get("onclick", "")
+                # 方法1: 处理新格式 - 直接URL (如arxiv)
+                # 匹配: togglePdf('id', 'https://arxiv.org/pdf/xxx', this)
+                direct_url_match = re.search(
+                    r"togglePdf\('[^']*',\s*'([^']+)',", onclick_attr
+                )
+                if direct_url_match:
+                    pdf_url = direct_url_match.group(1)
+                    # 检查是否是直接的PDF链接
+                    if pdf_url.startswith("http") and not pdf_url.startswith("/pdf?url="):
+                        paper_info["pdf_url"] = pdf_url
+                    else:
+                        # 方法2: 处理旧格式 - 包装的URL
+                        # 从 /pdf?url=actual_url 中提取 actual_url
+                        actual_url_match = re.search(r"url=([^&]+)", pdf_url)
+                        if actual_url_match:
+                            paper_info["pdf_url"] = actual_url_match.group(1)
+
+            # 提取第一作者
+            authors_p = paper_div.find("p", id=lambda x: x and x.startswith("authors-"))
+            if authors_p:
+                # 查找所有作者链接
+                author_links = authors_p.find_all("a", class_="author")
+                if author_links:
+                    # 只保留第一作者
+                    first_author = author_links[0].get_text(strip=True)
                     paper_info["first_author"] = first_author
+                else:
+                    # 如果没有找到author类的链接，尝试从文本中提取
+                    authors_text = authors_p.get_text(strip=True)
+                    # 移除"Authors:"前缀，然后按逗号分割取第一个
+                    if "Authors:" in authors_text:
+                        authors_clean = authors_text.replace("Authors:", "").strip()
+                        first_author = authors_clean.split(",")[0].strip()
+                        paper_info["first_author"] = first_author
 
-        # 提取摘要
-        summary_p = paper_div.find("p", class_="summary")
-        if summary_p:
-            paper_info["abstract"] = summary_p.get_text(strip=True)
+            # 提取摘要
+            summary_p = paper_div.find("p", class_="summary")
+            if summary_p:
+                paper_info["abstract"] = summary_p.get_text(strip=True)
 
-        # 提取出版年份
-        publication_time = None
+            # 提取出版年份
+            publication_time = None
 
-        if not venue:
-            date = paper_div.find("p", class_="metainfo date")
-            if date:
-                paper_info["publication_time"] = date.get_text(strip=True).split("Publish: ")[-1]
+            if not venue:
+                date = paper_div.find("p", class_="metainfo date")
+                if date:
+                    paper_info["publication_time"] = date.get_text(strip=True).split(
+                        "Publish: "
+                    )[-1]
 
-        else:
-            subjects_p = paper_div.find("p", class_="metainfo subjects")
-            if subjects_p:
-                subject_links = subjects_p.find_all("a")
-                subjects = [subject.get_text(strip=True) for subject in subject_links]
-                paper_info["subjects"] = subjects
+            else:
+                subjects_p = paper_div.find("p", class_="metainfo subjects")
+                if subjects_p:
+                    subject_links = subjects_p.find_all("a")
+                    subjects = [subject.get_text(strip=True) for subject in subject_links]
+                    paper_info["subjects"] = subjects
 
-                for subject in subjects:
-                    year_match = re.search(r"\.(\d{4})", subject)
-                    if year_match:
-                        publication_time = int(year_match.group(1))
-                        break
+                    for subject in subjects:
+                        year_match = re.search(r"\.(\d{4})", subject)
+                        if year_match:
+                            publication_time = int(year_match.group(1))
+                            break
 
-            if publication_time:
-                paper_info["publication_time"] = publication_time
+                if publication_time:
+                    paper_info["publication_time"] = publication_time
 
-        papers.append(paper_info)
+            papers.append(paper_info)
 
-    return papers
-
-
+        return papers
+    except Exception as e:
+        return [{"error": f"Failed to parse HTML content: {str(e)}"}]
 
 
 async def load_ccf_ranking() -> dict:
-    with open("ccfrank.yml", "r", encoding="utf-8") as f:
-        yaml_data = yaml.safe_load(f)
+    try:
+        with open("ccfrank.yml", "r", encoding="utf-8") as f:
+            yaml_data = yaml.safe_load(f)
 
-    if not yaml_data or "venues" not in yaml_data:
-        print("YAML文件格式不正确或venues列表为空")
+        if not yaml_data or "venues" not in yaml_data:
+            return {}
+
+        ccf_rank_map = {}
+        for venue in yaml_data["venues"]:
+            rank = venue.get("rank")
+            abbr = venue.get("abbr")
+            full_name = venue.get("name")
+
+            if abbr:
+                ccf_rank_map[abbr.lower()] = rank
+            if full_name:
+                ccf_rank_map[full_name.lower()] = rank
+
+        return ccf_rank_map
+    except FileNotFoundError:
+        return {}
+    except yaml.YAMLError:
+        return {}
+    except Exception:
         return {}
 
-    ccf_rank_map = {}
-    for venue in yaml_data["venues"]:
-        rank = venue.get("rank")
-        abbr = venue.get("abbr")
-        full_name = venue.get("name")
-
-        # 使用缩写和全称作为键
-        if abbr:
-            ccf_rank_map[abbr.lower()] = rank
-        if full_name:
-            ccf_rank_map[full_name.lower()] = rank
-
-    return ccf_rank_map
 
 @mcp.tool(name="get_ccf_rank", description="Get the CCF rank of a venue")
 async def get_ccf_rank(venue: str) -> str:
-    ccf_rank_map = await load_ccf_ranking()
-    if venue.lower() in ccf_rank_map:
-        return ccf_rank_map[venue.lower()]
-    else:
-        return "N/A"
+    try:
+        if not venue or not venue.strip():
+            return "Error: Venue name cannot be empty"
+        
+        ccf_rank_map = await load_ccf_ranking()
+        return ccf_rank_map.get(venue.lower(), "N/A")
+    except Exception as e:
+        return f"Error: Failed to get CCF rank - {str(e)}"
 
 
 @mcp.tool(
@@ -169,21 +182,33 @@ async def search_on_arxiv(
     num_results: int = 100,
     need_datetime_sort: bool = False,
 ) -> list:
-    response_xml = await httpx.AsyncClient().get(
-        f"https://papers.cool/arxiv/search?query={query}&show=1000"
-    )
-    response_xml.raise_for_status()
-    html_content = response_xml.text
-    papers = await extract_papers_from_html(html_content, venue=False)
+    try:
+        if not query or not query.strip():
+            return [{"error": "Query cannot be empty"}]
+        
+        if num_results <= 0:
+            return [{"error": "Number of results must be positive"}]
 
-    if need_datetime_sort:
-        papers = sorted(
-            papers, key=lambda x: x.get("publication_time", 0), reverse=True
-        )
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.get(
+                f"https://papers.cool/arxiv/search?query={query}&show=1000"
+            )
+            response.raise_for_status()
+            
+        papers = await extract_papers_from_html(response.text, venue=False)
 
-    papers = papers[:num_results]
+        if need_datetime_sort:
+            papers = sorted(
+                papers, key=lambda x: x.get("publication_time", 0), reverse=True
+            )
 
-    return papers
+        return papers[:num_results]
+    except httpx.RequestError as e:
+        return [{"error": f"Network request failed: {str(e)}"}]
+    except httpx.HTTPStatusError as e:
+        return [{"error": f"HTTP error {e.response.status_code}: {e.response.text[:100]}"}]
+    except Exception as e:
+        return [{"error": f"Search failed: {str(e)}"}]
 
 
 @mcp.tool(
@@ -215,42 +240,78 @@ async def search_on_arxiv(
 async def search_on_venue(
     query: str, num_results: int = 100, need_datetime_sort: bool = True
 ) -> list:
-    response_xml = await httpx.AsyncClient().get(
-        f"https://papers.cool/venue/search?query={query}&show=1000"
-    )
-    response_xml.raise_for_status()
-    html_content = response_xml.text
-    papers = await extract_papers_from_html(html_content, venue=True)
+    try:
+        if not query or not query.strip():
+            return [{"error": "Query cannot be empty"}]
+        
+        if num_results <= 0:
+            return [{"error": "Number of results must be positive"}]
 
-    if need_datetime_sort:
-        papers = sorted(
-            papers, key=lambda x: x.get("publication_time", 0), reverse=True
-        )
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.get(
+                f"https://papers.cool/venue/search?query={query}&show=1000"
+            )
+            response.raise_for_status()
+            
+        papers = await extract_papers_from_html(response.text, venue=True)
 
-    papers = papers[:num_results]
+        if need_datetime_sort:
+            papers = sorted(
+                papers, key=lambda x: x.get("publication_time", 0), reverse=True
+            )
 
-    return papers
+        return papers[:num_results]
+    except httpx.RequestError as e:
+        return [{"error": f"Network request failed: {str(e)}"}]
+    except httpx.HTTPStatusError as e:
+        return [{"error": f"HTTP error {e.response.status_code}: {e.response.text[:100]}"}]
+    except Exception as e:
+        return [{"error": f"Search failed: {str(e)}"}]
 
 
 def format_filename(title: str) -> str:
     return re.sub(r'[<>:"/\\|?*]', "_", title.strip())[:100] + ".pdf"
 
 
-@mcp.tool(name="download_paper_pdf", description="Download pdf file of paper from the pdf_url")
+@mcp.tool(
+    name="download_paper_pdf", description="Download pdf file of paper from the pdf_url. And return the path of the downloaded paper."
+)
 async def download_paper_pdf(title: str, pdf_url: str) -> str:
-    async with httpx.AsyncClient() as client:
-        response = await client.get(pdf_url)
-        response.raise_for_status()
-        content = response.content
+    try:
+        if not title or not title.strip():
+            return "Error: Title cannot be empty"
+        
+        if not pdf_url or not pdf_url.startswith(("http://", "https://")):
+            return "Error: Invalid PDF URL"
 
-    save_path = format_filename(title)
-    with open(f"./data/{save_path}", "wb") as f:
-        f.write(content)
-    return save_path
+        # Ensure data directory exists
+        data_dir = Path("./data")
+        data_dir.mkdir(exist_ok=True)
+
+        async with httpx.AsyncClient(timeout=60.0) as client:
+            response = await client.get(pdf_url)
+            response.raise_for_status()
+            
+        save_path = format_filename(title)
+        file_path = data_dir / save_path
+        
+        with open(file_path, "wb") as f:
+            f.write(response.content)
+        
+        return save_path
+        
+    except httpx.RequestError as e:
+        return f"Error: Network request failed - {str(e)}"
+    except httpx.HTTPStatusError as e:
+        return f"Error: HTTP error {e.response.status_code}"
+    except OSError as e:
+        return f"Error: File operation failed - {str(e)}"
+    except Exception as e:
+        return f"Error: Download failed - {str(e)}"
 
 
 @mcp.tool(
-    name="extract_academic_query",
+    name="sequential_extract_academic_query",
     description="""
     Note: All processes and results must be in English!
     A tool for progressively analyzing and extracting users' academic search intent  
@@ -295,7 +356,7 @@ async def download_paper_pdf(title: str, pdf_url: str) -> str:
     - Potential query variations
     """,
 )
-def extract_academic_query(
+def sequential_extract_academic_query(
     analysis_step: str,
     step_number: int,
     total_steps: int,
@@ -309,77 +370,96 @@ def extract_academic_query(
     date_range: str = None,
     datetime_sort: bool = False,
 ) -> str:
-    result = {
-        "step_number": step_number,
-        "total_steps": total_steps,
-        "next_step_needed": next_step_needed,
-        "analysis_step": analysis_step,
-        "confidence_level": confidence_level or 0.5,
-    }
+    try:
+        if not analysis_step or step_number <= 0 or total_steps <= 0:
+            return json.dumps({"error": "Invalid parameters provided"})
 
-    if not next_step_needed:
-        # Final step: generate complete query
-        concepts = extracted_concepts or []
+        result = {
+            "step_number": step_number,
+            "total_steps": total_steps,
+            "next_step_needed": next_step_needed,
+            "analysis_step": analysis_step,
+            "confidence_level": confidence_level or 0.5,
+        }
 
-        result.update(
-            {
-                "query_config": {
-                    "keywords": concepts[:3],
-                    "databases": databases,
-                    "filters": {
-                        "date_range": date_range,
-                        "sort": "datetime" if datetime_sort else "relevance",
+        if not next_step_needed:
+            concepts = extracted_concepts or []
+            result.update(
+                {
+                    "query_config": {
+                        "keywords": concepts[:3],
+                        "databases": databases,
+                        "filters": {
+                            "date_range": date_range,
+                            "sort": "datetime" if datetime_sort else "relevance",
+                        },
                     },
-                },
-                "alternatives": (
-                    [{"keywords": concepts[3:6]}] if len(concepts) > 3 else []
-                ),
-                "analysis_complete": True,
-            }
-        )
-    else:
-        # Intermediate step
-        result.update(
-            {
-                "extracted_concepts": extracted_concepts or [],
-                "databases": databases,
-                "search_strategy": search_strategy,
-                "needs_clarification": needs_clarification,
-                "clarification_questions": clarification_questions or [],
-            }
-        )
+                    "alternatives": (
+                        [{"keywords": concepts[3:6]}] if len(concepts) > 3 else []
+                    ),
+                    "analysis_complete": True,
+                }
+            )
+        else:
+            result.update(
+                {
+                    "extracted_concepts": extracted_concepts or [],
+                    "databases": databases,
+                    "search_strategy": search_strategy,
+                    "needs_clarification": needs_clarification,
+                    "clarification_questions": clarification_questions or [],
+                }
+            )
 
-    return json.dumps(result, indent=2)
+        return json.dumps(result, indent=2)
+    except Exception as e:
+        return json.dumps({"error": f"Query extraction failed: {str(e)}"})
 
 
 @mcp.tool(
     name="list_downloaded_papers",
-    description="When you need to read a paper, first List all paths of downloaded papers",
+    description="When you need to read a paper, first List all paths of downloaded papers. ",
 )
 async def list_downloaded_papers() -> list[str]:
-    return [file for file in Path("./data").iterdir() if file.suffix == ".pdf"]
+    try:
+        data_dir = Path("./data")
+        if not data_dir.exists():
+            return ["Error: Data directory does not exist"]
+        
+        pdf_files = [file.name for file in data_dir.iterdir() if file.suffix == ".pdf"]
+        return pdf_files if pdf_files else ["No PDF files found"]
+    except PermissionError:
+        return ["Error: Permission denied accessing data directory"]
+    except Exception as e:
+        return [f"Error: Failed to list files - {str(e)}"]
 
 
-@mcp.tool(name="extract_pdf_text", description="Extract text from a PDF file")
-async def extract_pdf_text(pdf_path: str) -> str:
-    
-    if not Path(pdf_path).exists():
-        pdf_path = Path("./data") / pdf_path
-        if not pdf_path.exists():
-            return "PDF file not found"
-        pdf_path = pdf_path.as_posix()
-    
-    pdf_document = fitz.open(pdf_path)
+@mcp.tool(name="read_paper", description="You can read the paper by this tool.")
+async def read_paper(pdf_path: str) -> str:
+    try:
+        if not pdf_path :
+            return "Error: PDF path cannot be empty"
 
-    full_text = ""
+        # Try original path first, then data directory
+        path = Path(pdf_path)
+        if not path.exists():
+            path = Path("./data") / pdf_path
+            if not path.exists():
+                return "Error: PDF file not found"
 
-    for page_num in range(len(pdf_document)):
-        page = pdf_document[page_num]
-        full_text += page.get_text()
+        pdf_document = fitz.open(path)
+        full_text = ""
 
-    pdf_document.close()
+        for page_num in range(len(pdf_document)):
+            page = pdf_document[page_num]
+            full_text += page.get_text()
 
-    return full_text
+        pdf_document.close()
+        
+        return {"Paper Content":full_text} if full_text.strip() else "Error: No text content found in PDF"
+
+    except Exception as e:
+        return f"Error: Failed to extract text - {str(e)}"
 
 
 if __name__ == "__main__":

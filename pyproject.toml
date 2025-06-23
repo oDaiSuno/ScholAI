@@ -7,4 +7,8 @@ requires-python = ">=3.11"
 dependencies = [
     "dict2xml>=1.7.6",
     "mcp[cli]>=1.9.4",
+    "pymupdf>=1.26.1",
+    "httpx>=0.28.0",
+    "pyyaml>=6.0",
+    "beautifulsoup4>=4.12.0",
 ]

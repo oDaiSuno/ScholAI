@@ -1,404 +1,165 @@
-# 🎓 ScholAI MCP Server
+# 🎓 ScholAI
 
-**An intelligent academic research assistant powered by Model Context Protocol**
+**基于模型上下文协议的智能学术研究助手**
 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 [![MCP](https://img.shields.io/badge/MCP-1.9.4+-green.svg)](https://modelcontextprotocol.io)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-## ✨ Overview
+[English](./README_EN.md) | 中文
 
-ScholAI is a comprehensive Model Context Protocol (MCP) server designed to revolutionize academic research workflows. It provides intelligent tools for discovering, analyzing, and managing scholarly publications across multiple academic databases with advanced features like CCF ranking integration and semantic query analysis.
+## ✨ 概述
 
-### 🚀 Key Features
+ScholAI 是一个基于模型上下文协议（MCP）的服务器，旨在增强学术研究工作流程。它提供了用于发现、分析和管理学术出版物的工具，具有 CCF 排名集成和语义查询分析等功能。
 
-- **🔍 Multi-Database Search**: Access arXiv preprints and peer-reviewed publications from top conferences/journals
-- **🏆 CCF Ranking Integration**: Automatically determine conference and journal rankings using comprehensive CCF database
-- **📄 Intelligent PDF Processing**: Download and extract structured text from academic papers
-- **🧠 Semantic Query Analysis**: Transform natural language research interests into precise academic queries
-- **📊 Publication Analytics**: Get detailed publication metadata including venue information and citation data
-- **💾 Research Management**: Organize and track downloaded papers with built-in file management
-- **⚡ High-Performance**: Asynchronous processing for efficient batch operations
-- **🔗 DBLP Integration**: Enhanced publication information through academic database linkage
+![](images/image.png)
 
-## 🛠️ Core Tools
+## 🚀 快速开始
 
-### 📚 Search & Discovery
+### 前提条件
 
-#### `search_on_arxiv`
-Search preprint papers on arXiv, the world's largest open-access repository.
+- Python 3.11 或更高版本
+- uv 包管理器（**推荐**）或 pip
 
-**Key Features:**
-- Multi-disciplinary coverage (CS, Physics, Math, Biology, Economics)
-- Simple keyword search interface
-- Configurable result sorting and filtering
-- Direct PDF access links
+### 安装
 
-**Parameters:**
-- `query` (str): Search keywords or phrase
-- `num_results` (int, default: 100): Maximum papers to return
-- `need_pdf_link` (bool, default: True): Include PDF download links
-- `need_datetime_sort` (bool, default: False): Sort by submission date
-- `need_publication_info` (bool, default: False): Include detailed metadata
+1. **克隆仓库：**
 
-#### `search_on_venue`
-Search academic papers within specific conferences and journals.
-
-**Key Features:**
-- Venue-specific search in curated databases
-- Quality-focused peer-reviewed results
-- Conference and journal targeting
-- Customizable output options
-
-**Parameters:**
-- `query` (str): Search keywords or phrase
-- `num_results` (int, default: 100): Maximum papers to return
-- `need_pdf_link` (bool, default: True): Include PDF download links
-- `need_datetime_sort` (bool, default: False): Sort by publication date
-- `need_publication_info` (bool, default: False): Include publication metadata
-
-### 📖 Paper Management
-
-#### `get_publication_info`
-Retrieve comprehensive publication information with CCF ranking.
-
-**Features:**
-- DBLP database integration
-- Automatic CCF ranking determination
-- Venue and year information
-- Author and citation data
-
-**Parameters:**
-- `title` (str): Paper title
-- `author` (str, optional): Author name for precise matching
-
-#### `get_paper_pdf_link`
-Extract direct PDF download links from paper pages.
-
-**Parameters:**
-- `cool_paper_id` (str): Paper identifier URL
-
-#### `download_paper_pdf`
-Download and save PDF files locally with organized naming.
-
-**Parameters:**
-- `title` (str): Paper title for filename generation
-- `pdf_link` (str): Direct PDF download URL
-
-#### `extract_pdf_text`
-Extract structured text content from PDF files.
-
-**Features:**
-- Page-by-page text extraction
-- UTF-8 encoding support
-- Structured content preservation
-
-**Parameters:**
-- `pdf_path` (str): Path to PDF file
-
-### 🧭 Research Intelligence
-
-#### `extract_academic_query`
-Progressive analysis tool for transforming research interests into precise queries.
-
-**Capabilities:**
-- Intent understanding and domain identification
-- Concept extraction and terminology mapping
-- Query optimization and strategy selection
-- Multi-step analytical process
-
-**Parameters:**
-- `analysis_step` (str): Current analysis content
-- `step_number` (int): Current step index
-- `total_steps` (int): Estimated total steps
-- `next_step_needed` (bool): Continue analysis flag
-- Additional parameters for extracted concepts, databases, search strategy, etc.
-
-#### `list_downloaded_papers`
-Inventory management for local paper collection.
-
-**Returns:** List of all downloaded PDF files in the data directory
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Python 3.11 or higher
-- uv package manager (recommended) or pip
-
-### Installation
-
-1. **Clone the repository:**
    ```bash
    git clone https://github.com/oDaiSuno/ScholAI
    cd ScholAI
    ```
 
-2. **Install dependencies:**
+2. **安装依赖（强烈推荐使用uv）：**
+
    ```bash
-   # Using uv (recommended)
+   # 使用 uv（推荐）
    uv sync
    
-   # Or using pip
+   # 或使用 pip
    pip install -r requirements.txt
+   
+   # 如果上述方法不成功，可以手动安装缺失的依赖
+   pip install httpx pyyaml beautifulsoup4 dict2xml mcp[cli] pymupdf
    ```
 
-3. **Prepare data directory:**
+
+1. **准备数据目录：**
+
    ```bash
    mkdir -p data
    ```
 
-4. **Run the MCP server:**
-   ```bash
-   python main.py
-   ```
+### 配置 MCP 服务器
 
-### Configuration
+这里以cherry studio为例，填写名称为`ScholAI`，命令为`uv`，参数如下（记得更改项目路径）
 
-The server uses the following configuration:
-
-- **Server Name**: ScholAI MCP Server
-- **Version**: 0.0.0
-- **Transport**: stdio
-- **Data Directory**: `./data/` (for downloaded PDFs)
-- **CCF Rankings**: `./data/ccfrank.yml` (4000+ venue rankings)
-
-## 💡 Usage Examples
-
-### Basic Paper Search
-
-```python
-# Search for machine learning papers on arXiv
-result = await search_on_arxiv(
-    query="machine learning",
-    num_results=10,
-    need_pdf_link=True
-)
+```
+--directory
+D:\path\to\your\ScholAI
+run
+main.py
 ```
 
-### Conference-Specific Search
 
-```python
-# Find papers from specific venues
-result = await search_on_venue(
-    query="neural networks",
-    num_results=20,
-    need_publication_info=True
-)
-```
 
-### Complete Research Workflow
+![image-20250623182123300](images/image-20250623182123300.png)
 
-```python
-# 1. Search for papers
-papers = await search_on_arxiv("transformer architecture")
+## 🍟 主要特点
 
-# 2. Get detailed publication info
-for paper in papers:
-    pub_info = await get_publication_info(
-        title=paper["title"], 
-        author=paper["author"]
-    )
-    
-# 3. Download interesting papers
-pdf_link = await get_paper_pdf_link(paper["cool_paper_id"])
-saved_file = await download_paper_pdf(paper["title"], pdf_link)
+- **🔍 多数据库搜索**：访问 arXiv 预印本和同行评审出版物
+- **🏆 CCF 排名集成**：自动确定会议和期刊排名
+- **📄 PDF 管理**：下载和提取学术论文文本
+- **🧠 语义查询分析**：将自然语言研究兴趣转化为精确的学术查询
 
-# 4. Extract and analyze content
-content = await extract_pdf_text(f"./data/{saved_file}")
-```
+## 🛠️ 核心工具
 
-### Intelligent Query Construction
+### 📚 搜索与发现
 
-```python
-# Transform natural language into academic query
-analysis = extract_academic_query(
-    analysis_step="Analyzing user interest in deep learning applications",
-    step_number=1,
-    total_steps=3,
-    next_step_needed=True,
-    extracted_concepts=["deep learning", "computer vision", "neural networks"]
-)
-```
+#### `search_on_arxiv`
+在 arXiv 存储库中搜索预印本论文。
 
-## 📋 API Reference
+**参数：**
+- `query`：搜索关键词或短语
+- `num_results`：返回的最大论文数量（默认：100）
+- `need_datetime_sort`：按提交日期排序（默认：False）
 
-### Response Formats
+#### `search_on_venue`
+在特定会议和期刊中搜索学术论文。
 
-#### Search Results
-```json
-{
-  "cool_paper_id": "https://papers.cool/arxiv/2301.12345",
-  "title": "Paper Title",
-  "author": "Author Name",
-  "summary": "Paper abstract...",
-  "updated": "2024-01-15T10:30:00+00:00",
-  "pdf_link": "https://arxiv.org/pdf/2301.12345",
-  "publication_info": {
-    "venue": "ICML",
-    "ccf_rank": "A",
-    "year": "2024"
-  }
-}
-```
+**参数：**
+- `query`：搜索关键词或短语
+- `num_results`：返回的最大论文数量（默认：100）
+- `need_datetime_sort`：按发布日期排序（默认：True）
 
-#### Publication Information
-```json
-{
-  "venue": "International Conference on Machine Learning",
-  "ccf_rank": "A",
-  "year": "2024",
-  "journal": "Journal Name",
-  "booktitle": "Conference Proceedings"
-}
-```
+### 📖 论文管理
 
-#### Query Analysis Result
-```json
-{
-  "step_number": 3,
-  "total_steps": 3,
-  "next_step_needed": false,
-  "analysis_complete": true,
-  "query_config": {
-    "keywords": ["machine learning", "deep learning", "neural networks"],
-    "databases": "arxiv",
-    "filters": {
-      "date_range": "recent",
-      "sort": "relevance"
-    }
-  },
-  "confidence_level": 0.92
-}
-```
+#### `get_ccf_rank`
+获取学术会议或期刊的 CCF 排名。
 
-## 🏗️ Technical Architecture
+**参数：**
+- `venue`：会议或期刊名称
 
-### Core Dependencies
+#### `download_paper_pdf`
+下载并本地保存 PDF 文件。
 
-- **FastMCP**: Model Context Protocol server framework
-- **httpx**: Asynchronous HTTP client for API requests
-- **PyMuPDF (fitz)**: PDF processing and text extraction
-- **PyYAML**: Configuration file processing
-- **fake-useragent**: HTTP request anonymization
+**参数：**
+- `title`：用于生成文件名的论文标题
+- `pdf_url`：直接 PDF 下载 URL
 
-### Data Sources
+#### `read_paper`
+从 PDF 文件中提取文本内容。
 
-- **arXiv**: Preprint repository via papers.cool API
-- **DBLP**: Academic publication database
-- **CCF Rankings**: Comprehensive conference/journal ranking database
-- **Venue Databases**: Curated academic publication collections
+**参数：**
+- `pdf_path`：PDF 文件路径
 
-### File Structure
+### 🧭 研究智能
+
+#### `sequential_extract_academic_query`
+将研究兴趣转化为精确查询的渐进分析工具。
+
+**参数：**
+- `analysis_step`：当前分析内容
+- `step_number`：当前步骤索引
+- `total_steps`：估计的总步骤数
+- `next_step_needed`：继续分析标志
+- 其他概念、数据库、搜索策略等参数
+
+#### `list_downloaded_papers`
+列出数据目录中所有已下载的 PDF 文件。
+
+
+### 配置
+
+- **CCF 排名**：将 `ccfrank.yml` 放在根目录中用于会议排名
+- **数据目录**：`./data/` 用于已下载的 PDF
+
+
+## 🏗️ 技术架构
+
+### 核心依赖
+
+- **FastMCP**：模型上下文协议服务器框架
+- **httpx**：异步 HTTP 客户端用于 API 请求
+- **PyMuPDF (fitz)**：PDF 处理和文本提取
+- **PyYAML**：配置文件处理
+- **BeautifulSoup**：HTML 解析
+
+### 文件结构
 
 ```
 ScholAI/
-├── main.py              # Main MCP server implementation
-├── pyproject.toml       # Project configuration
-├── uv.lock             # Dependency lock file
-├── data/               # Data storage directory
-│   ├── ccfrank.yml     # CCF ranking database
-│   └── *.pdf           # Downloaded papers
-└── README.md           # This documentation
+├── main.py              # 主 MCP 服务器实现
+├── pyproject.toml       # 项目配置
+├── uv.lock              # 依赖锁定文件
+├── ccfrank.yml          # CCF 排名数据库
+├── data/                # 已下载论文存储
+└── README.md            # 文档
 ```
-
-## 🔧 Advanced Configuration
-
-### Environment Variables
-
-- `HTTP_PROXY`: HTTP proxy configuration (optional)
-- `HTTPS_PROXY`: HTTPS proxy configuration (optional)
-
-### Custom Data Directory
-
-Modify the data directory path in `main.py`:
-
-```python
-# Change default data directory
-DATA_DIR = "./custom_data_path/"
-```
-
-### CCF Rankings Update
-
-Replace `./data/ccfrank.yml` with updated ranking data:
-
-```yaml
-venues:
-  - rank: A
-    abbr: ICML
-    name: "International Conference on Machine Learning"
-    url: /conf/icml
-    dblp: /conf/icml/icml
-```
-
-## 🔍 Troubleshooting
-
-### Common Issues
-
-1. **PDF Download Failures**
-   - Check network connectivity
-   - Verify PDF URL accessibility
-   - Ensure sufficient disk space
-
-2. **Search Result Limitations**
-   - API rate limiting may apply
-   - Large result sets may timeout
-   - Network connectivity issues
-
-3. **CCF Ranking Not Found**
-   - Venue name variations
-   - Missing entries in database
-   - Case sensitivity issues
-
-### Debug Mode
-
-Enable verbose logging by modifying the server startup:
-
-```python
-import logging
-logging.basicConfig(level=logging.DEBUG)
-```
-
-## 🤝 Contributing
-
-We welcome contributions to ScholAI! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-### Development Setup
-
-1. Fork the repository
-2. Create a feature branch
-3. Install development dependencies
-4. Run tests
-5. Submit a pull request
-
-### Code Standards
-
-- Follow PEP 8 style guidelines
-- Add comprehensive docstrings
-- Include unit tests for new features
-- Update documentation as needed
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Model Context Protocol**: Foundation framework
-- **arXiv**: Open access to scientific papers
-- **DBLP**: Academic publication database
-- **CCF**: Conference and journal ranking system
-- **papers.cool**: API access to academic databases
-
-## 📞 Support
-
-For questions, issues, or suggestions:
-
-- 📧 Open an issue on GitHub
-- 💬 Join our community discussions
-- 📖 Check the documentation wiki
 
 ---
 
-**Built with ❤️ for the academic research community**
+**用 🌟 为学术研究社区构建**
+
+
+

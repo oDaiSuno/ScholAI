@@ -1,6 +1,6 @@
 # 🎓 ScholAI
 
-**An intelligent academic research assistant powered by MCP**
+**An intelligent academic research assistant powered by MCP v0.0.1**
 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 [![MCP](https://img.shields.io/badge/MCP-1.9.4+-green.svg)](https://modelcontextprotocol.io)
@@ -12,7 +12,17 @@ English | [中文](./README.md)
 
 ScholAI is a Model Context Protocol (MCP) server designed to enhance academic research workflows. It provides tools for discovering, analyzing, and managing scholarly publications with features like CCF ranking integration and semantic query analysis.
 
+![image-20250625172529710](images/image-20250625172529710.png)
+
 ![](images/image.png)
+
+## 🆕 v0.0.1 Release Updates
+
+- **🔍 LlamaIndex API Integration** - Enhanced PDF parsing with support for tables and charts extraction
+- **🧠 Intelligent Search Planning** - New `plan_for_paper_search` tool for smart research strategy planning
+- **🎯 Query Intent Analysis** - Improved understanding of academic queries with core research intent extraction
+- **📂 File Management Optimization** - Enhanced PDF file path handling for better file discovery
+- **🚀 Performance Improvements** - Optimized async processing and API call logic for faster response times
 
 ## 🚀 Quick Start
 
@@ -60,6 +70,13 @@ run
 main.py
 ```
 
+### Configuring LlamaIndex API (Optional but Recommended)
+
+For enhanced PDF parsing results, you can set up the `LLAMAINDEX_API_KEY` environment variable:
+You can sign up for an account at [llamaindex](https://cloud.llamaindex.ai), create an API Key, and enjoy **10,000 free credits per month**.
+
+![image-20250625170320380](images/image-20250625170320380.png)
+
 ![image-20250623182123300](images/image-20250623182123300.png)
 
 ## 🍟 Key Features
@@ -68,6 +85,7 @@ main.py
 - **🏆 CCF Ranking Integration**: Automatically determine conference and journal rankings
 - **📄 PDF Management**: Download and extract text from academic papers
 - **🧠 Semantic Query Analysis**: Transform natural language research interests into precise academic queries
+- **📊 Advanced PDF Parsing**: Support for tables and chart extraction via LlamaIndex API (requires API key)
 
 ## 🛠️ Core Tools
 
@@ -89,6 +107,13 @@ Search academic papers within specific conferences and journals.
 - `num_results`: Maximum papers to return (default: 100)
 - `need_datetime_sort`: Sort by publication date (default: True)
 
+#### `plan_for_paper_search`
+Plan paper search strategy based on user query.
+
+**Parameters:**
+- `user_query`: Original user query
+- `need_intent_extraction`: Whether intent extraction is needed (default: True)
+
 ### 📖 Paper Management
 
 #### `get_ccf_rank`
@@ -105,7 +130,7 @@ Download and save PDF files locally.
 - `pdf_url`: Direct PDF download URL
 
 #### `read_paper`
-Extract text content from PDF files.
+Extract text content from PDF files with LlamaIndex API enhanced parsing.
 
 **Parameters:**
 - `pdf_path`: Path to PDF file
@@ -129,6 +154,7 @@ List all downloaded PDF files in the data directory.
 
 - **CCF Rankings**: Place `ccfrank.yml` in the root directory for venue rankings
 - **Data Directory**: `./data/` for downloaded PDFs
+- **LlamaIndex API**: Set environment variable `LLAMAINDEX_API_KEY` to enable advanced PDF parsing
 
 ## 🏗️ Technical Architecture
 
@@ -139,6 +165,7 @@ List all downloaded PDF files in the data directory.
 - **PyMuPDF (fitz)**: PDF processing and text extraction
 - **PyYAML**: Configuration file processing
 - **BeautifulSoup**: HTML parsing
+- **LlamaIndex API**: Advanced PDF parsing and structured extraction (optional)
 
 ### File Structure
 
@@ -151,6 +178,10 @@ ScholAI/
 ├── data/                # Downloaded papers storage
 └── README.md            # Documentation
 ```
+
+## 🪻 Special Thanks
+- Paper search website: https://papers.cool
+- MCP debugging tool: https://kirigaya.cn/openmcp
 
 ---
 

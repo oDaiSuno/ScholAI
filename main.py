@@ -7,9 +7,10 @@ import re
 import fitz
 from pathlib import Path
 from bs4 import BeautifulSoup
+import os
+import asyncio
 
-
-mcp = FastMCP("ScholAI MCP Server", version="0.0.0")
+mcp = FastMCP("ScholAI MCP Server", version="0.0.1")
 
 proxies = None
 
@@ -46,7 +47,9 @@ async def extract_papers_from_html(html_content, venue=True):
                 if direct_url_match:
                     pdf_url = direct_url_match.group(1)
                     # 检查是否是直接的PDF链接
-                    if pdf_url.startswith("http") and not pdf_url.startswith("/pdf?url="):
+                    if pdf_url.startswith("http") and not pdf_url.startswith(
+                        "/pdf?url="
+                    ):
                         paper_info["pdf_url"] = pdf_url
                     else:
                         # 方法2: 处理旧格式 - 包装的URL
@@ -92,7 +95,9 @@ async def extract_papers_from_html(html_content, venue=True):
                 subjects_p = paper_div.find("p", class_="metainfo subjects")
                 if subjects_p:
                     subject_links = subjects_p.find_all("a")
-                    subjects = [subject.get_text(strip=True) for subject in subject_links]
+                    subjects = [
+                        subject.get_text(strip=True) for subject in subject_links
+                    ]
                     paper_info["subjects"] = subjects
 
                     for subject in subjects:
@@ -144,7 +149,7 @@ async def get_ccf_rank(venue: str) -> str:
     try:
         if not venue or not venue.strip():
             return "Error: Venue name cannot be empty"
-        
+
         ccf_rank_map = await load_ccf_ranking()
         return ccf_rank_map.get(venue.lower(), "N/A")
     except Exception as e:
@@ -185,7 +190,7 @@ async def search_on_arxiv(
     try:
         if not query or not query.strip():
             return [{"error": "Query cannot be empty"}]
-        
+
         if num_results <= 0:
             return [{"error": "Number of results must be positive"}]
 
@@ -194,7 +199,7 @@ async def search_on_arxiv(
                 f"https://papers.cool/arxiv/search?query={query}&show=1000"
             )
             response.raise_for_status()
-            
+
         papers = await extract_papers_from_html(response.text, venue=False)
 
         if need_datetime_sort:
@@ -206,7 +211,9 @@ async def search_on_arxiv(
     except httpx.RequestError as e:
         return [{"error": f"Network request failed: {str(e)}"}]
     except httpx.HTTPStatusError as e:
-        return [{"error": f"HTTP error {e.response.status_code}: {e.response.text[:100]}"}]
+        return [
+            {"error": f"HTTP error {e.response.status_code}: {e.response.text[:100]}"}
+        ]
     except Exception as e:
         return [{"error": f"Search failed: {str(e)}"}]
 
@@ -243,7 +250,7 @@ async def search_on_venue(
     try:
         if not query or not query.strip():
             return [{"error": "Query cannot be empty"}]
-        
+
         if num_results <= 0:
             return [{"error": "Number of results must be positive"}]
 
@@ -252,7 +259,7 @@ async def search_on_venue(
                 f"https://papers.cool/venue/search?query={query}&show=1000"
             )
             response.raise_for_status()
-            
+
         papers = await extract_papers_from_html(response.text, venue=True)
 
         if need_datetime_sort:
@@ -264,7 +271,9 @@ async def search_on_venue(
     except httpx.RequestError as e:
         return [{"error": f"Network request failed: {str(e)}"}]
     except httpx.HTTPStatusError as e:
-        return [{"error": f"HTTP error {e.response.status_code}: {e.response.text[:100]}"}]
+        return [
+            {"error": f"HTTP error {e.response.status_code}: {e.response.text[:100]}"}
+        ]
     except Exception as e:
         return [{"error": f"Search failed: {str(e)}"}]
 
@@ -274,13 +283,14 @@ def format_filename(title: str) -> str:
 
 
 @mcp.tool(
-    name="download_paper_pdf", description="Download pdf file of paper from the pdf_url. And return the path of the downloaded paper."
+    name="download_paper_pdf",
+    description="Download pdf file of paper from the pdf_url. And return the path of the downloaded paper.",
 )
 async def download_paper_pdf(title: str, pdf_url: str) -> str:
     try:
         if not title or not title.strip():
             return "Error: Title cannot be empty"
-        
+
         if not pdf_url or not pdf_url.startswith(("http://", "https://")):
             return "Error: Invalid PDF URL"
 
@@ -291,15 +301,15 @@ async def download_paper_pdf(title: str, pdf_url: str) -> str:
         async with httpx.AsyncClient(timeout=60.0) as client:
             response = await client.get(pdf_url)
             response.raise_for_status()
-            
+
         save_path = format_filename(title)
         file_path = data_dir / save_path
-        
+
         with open(file_path, "wb") as f:
             f.write(response.content)
-        
+
         return save_path
-        
+
     except httpx.RequestError as e:
         return f"Error: Network request failed - {str(e)}"
     except httpx.HTTPStatusError as e:
@@ -425,7 +435,7 @@ async def list_downloaded_papers() -> list[str]:
         data_dir = Path("./data")
         if not data_dir.exists():
             return ["Error: Data directory does not exist"]
-        
+
         pdf_files = [file.name for file in data_dir.iterdir() if file.suffix == ".pdf"]
         return pdf_files if pdf_files else ["No PDF files found"]
     except PermissionError:
@@ -434,10 +444,111 @@ async def list_downloaded_papers() -> list[str]:
         return [f"Error: Failed to list files - {str(e)}"]
 
 
+async def upload_file_to_llamaparse(
+    file_path: str | Path,
+    token: str,
+    compact_markdown_table: bool = True,
+    extract_charts: bool = True,
+    structured_output: bool = True,
+) -> httpx.Response:
+    """
+    Uploads a file to the LlamaParse API, converting a cURL command to an httpx function.
+
+    Args:
+        file_path: The local path to the file to be uploaded.
+        token: The API bearer token for authentication.
+        compact_markdown_table: Flag to enable compact markdown table parsing.
+        extract_charts: Flag to enable chart extraction.
+        structured_output: Flag to enable structured output.
+
+    Returns:
+        The response object from the httpx request.
+    """
+    url = "https://api.cloud.llamaindex.ai/api/v1/parsing/upload"
+    headers = {"Accept": "application/json", "Authorization": f"Bearer {token}"}
+    data = {
+        "compact_markdown_table": str(compact_markdown_table).lower(),
+        "extract_charts": str(extract_charts).lower(),
+        "structured_output": str(structured_output).lower(),
+    }
+
+    async with httpx.AsyncClient(timeout=600.0) as client:
+        with open(file_path, "rb") as f:
+            files = {"file": f}
+            response = await client.post(url, headers=headers, data=data, files=files)
+            # Raise an exception for bad status codes (4xx or 5xx)
+            response.raise_for_status()
+            return response.json()
+
+
+async def get_job_status(job_id: str, token: str) -> httpx.Response:
+    """Gets the parsing job status."""
+    url = f"https://api.cloud.llamaindex.ai/api/v1/parsing/job/{job_id}"
+    headers = {"Accept": "application/json", "Authorization": f"Bearer {token}"}
+
+    async with httpx.AsyncClient(timeout=60.0) as client:
+        response = await client.get(url, headers=headers)
+        response.raise_for_status()
+        return response
+
+
+async def get_job_result_markdown(job_id: str, token: str) -> httpx.Response:
+    """Gets the parsing job result in markdown format."""
+    url = f"https://api.cloud.llamaindex.ai/api/v1/parsing/job/{job_id}/result/markdown"
+    headers = {"Accept": "application/json", "Authorization": f"Bearer {token}"}
+
+    async with httpx.AsyncClient(timeout=60.0) as client:
+        response = await client.get(url, headers=headers)
+        response.raise_for_status()
+        return response.json()
+
+
+async def read_paper_with_llamaindex(pdf_path: str) -> str:
+    try:
+        if not pdf_path:
+            return "Error: PDF path cannot be empty"
+
+        LLAMAINDEX_API_KEY = os.getenv("LLAMAINDEX_API_KEY", None)
+        if LLAMAINDEX_API_KEY:
+            upload_response = await upload_file_to_llamaparse(
+                pdf_path, LLAMAINDEX_API_KEY
+            )
+            job_id = upload_response.get("id")
+
+            # Step 2: Poll for job completion
+            terminal_states = {"SUCCESS", "ERROR"}
+
+            # Get initial job status
+            job_response = await get_job_status(job_id, LLAMAINDEX_API_KEY)
+            job_json = job_response.json()
+            status = job_json.get("status")
+
+            # Poll until job reaches a terminal state
+            while status not in terminal_states:
+                await asyncio.sleep(5)  # Wait before polling again
+                job_response = await get_job_status(job_id, LLAMAINDEX_API_KEY)
+                job_json = job_response.json()
+                status = job_json.get("status")
+
+            if status == "SUCCESS":
+                result_response = await get_job_result_markdown(
+                    job_id, LLAMAINDEX_API_KEY
+                )
+
+                return result_response.get("markdown", "")
+            else:
+                return "Error: Failed to read paper"
+
+        else:
+            return "Error: LLAMAINDEX_API_KEY is not set"
+    except Exception as e:
+        return f"Error: Failed to read paper - {str(e)}"
+
+
 @mcp.tool(name="read_paper", description="You can read the paper by this tool.")
 async def read_paper(pdf_path: str) -> str:
     try:
-        if not pdf_path :
+        if not pdf_path:
             return "Error: PDF path cannot be empty"
 
         # Try original path first, then data directory
@@ -447,6 +558,10 @@ async def read_paper(pdf_path: str) -> str:
             if not path.exists():
                 return "Error: PDF file not found"
 
+        LLAMAINDEX_API_KEY = os.getenv("LLAMAINDEX_API_KEY", None)
+        if LLAMAINDEX_API_KEY:
+            return await read_paper_with_llamaindex(path)
+
         pdf_document = fitz.open(path)
         full_text = ""
 
@@ -455,11 +570,100 @@ async def read_paper(pdf_path: str) -> str:
             full_text += page.get_text()
 
         pdf_document.close()
-        
-        return {"Paper Content":full_text} if full_text.strip() else "Error: No text content found in PDF"
+
+        return (
+            {"Paper Content": full_text}
+            if full_text.strip()
+            else "Error: No text content found in PDF"
+        )
 
     except Exception as e:
         return f"Error: Failed to extract text - {str(e)}"
+
+
+@mcp.tool(
+    name="plan_for_paper_search",
+    description="This is a tool designed to plan for paper search based on the user query",
+)
+def plan_for_paper_search(user_query: str, need_intent_extraction: bool) -> str:
+
+    if need_intent_extraction:
+        user_query = analyze_user_query(user_query)
+        return f"You must combine the following prompt with the `sequential_extract_academic_query` tool to extract the user's true intent, :\n{user_query}"
+
+    return f"You can directly use the `search_on_venue` or `search_on_arxiv` tools to search for papers according to the guidelines."
+
+
+def analyze_user_query(user_query: str) -> str:
+
+    prompt = f"""
+    <prompt>
+        <role>
+            You are an academic paper search expert. Your task is to extract a single optimal high-level query term from user queries for academic paper searching.
+        </role>
+        
+        <core_principles>
+            <principle name="conceptual_generalization">
+            Extract abstract academic concepts from specific application scenarios
+            </principle>
+            <principle name="maximum_coverage">
+            Select keywords that can retrieve the most relevant papers
+            </principle>
+            <principle name="academic_standards">
+            Use terminology widely recognized in academic communities
+            </principle>
+            <principle name="single_output">
+            Return only one optimal query term or phrase
+            </principle>
+        </core_principles>
+        
+        <extraction_strategies>
+            <strategy>Identify the core technical domain or research direction of the user query</strategy>
+            <strategy>Abstract specific tools and product names into technical categories</strategy>
+            <strategy>Prioritize terms with high frequency in academic literature</strategy>
+            <strategy>Consider related higher-level concepts and interdisciplinary fields</strategy>
+        </extraction_strategies>
+        
+        <examples>
+            <example>
+            <input>paper writing agent</input>
+            <output>AI agent</output>
+            </example>
+            <example>
+            <input>code review tool</input>
+            <output>software engineering</output>
+            </example>
+            <example>
+            <input>stock price prediction model</input>
+            <output>financial forecasting</output>
+            </example>
+            <example>
+            <input>chatgpt for education</input>
+            <output>educational technology</output>
+            </example>
+            <example>
+            <input>blockchain voting system</input>
+            <output>blockchain</output>
+            </example>
+            <example>
+            <input>autonomous vehicle safety</input>
+            <output>autonomous vehicles</output>
+            </example>
+        </examples>
+        
+        <output_format>
+            Return only the extracted query term without explanation or additional content.
+        </output_format>
+        
+        <user_query>{user_query}</user_query>
+        
+        <instruction>
+            Extract the optimal query term:
+        </instruction>
+    </prompt>
+    """
+
+    return prompt
 
 
 if __name__ == "__main__":
